@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import { HashRouter, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 import './App.css';
+import { Layout } from './Layout/Layout';
+import { Login } from './Login/Login';
+import { Home } from './Home/Home';
 
 function App() {
+  const [state, setState] = useState("out");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      <Layout state={ state } setState={ setState } />
+      <Routes>
+        <Route path="/" element={
+          <Login setState={ setState } />
+        } />
+        <Route path="/app" element={
+          <Home />
+        } />
+        <Route path="/*" element={<h1 id="error">ERROR 404</h1>} />
+      </Routes>
+    </HashRouter>
   );
 }
 
