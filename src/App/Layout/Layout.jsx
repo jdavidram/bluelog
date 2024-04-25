@@ -1,21 +1,14 @@
-import { NavLink } from "react-router-dom";
-import { FaPowerOff } from "react-icons/fa6";
+import { FaPlus } from "react-icons/fa6";
 import { ReactComponent as Logo } from "../logo.svg";
-import "./layout.scss";
+import "./Layout.scss";
 
-function Layout({ state, setState }) {
+function Layout({ title }) {
     return (
-        <nav className={ state }>
-            <span>
-                <Logo />
-                <h3>BlueLog</h3>
-            </span>
-            <span>
-                <NavLink to="/">
-                    <FaPowerOff onClick={() => setState("out")} />
-                </NavLink>
-            </span>
-        </nav>
+        <header>
+            <Logo id="logo" />
+            <h2>{ title }</h2>
+            <FaPlus />
+        </header>
     );
 }
 

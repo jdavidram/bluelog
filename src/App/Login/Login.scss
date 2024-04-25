@@ -1,0 +1,73 @@
+@import "../color";
+
+@keyframes logoAnime {
+    from {
+        width: calc(100%);
+        height: calc(100%);
+    }
+    to {
+        width: calc(60%);
+        height: calc(40%);
+    }
+}
+
+@keyframes showLogin {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+div#login {
+    width: calc(100%);
+    height: calc(100vh);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    svg {
+        width: calc(100%);
+        height: calc(80%);
+        animation-name: logoAnime;
+        animation-delay: 1s;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+    form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        opacity: 0;
+        animation-name: showLogin;
+        animation-delay: 2s;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        label {
+            padding: 10px;
+            input {
+                padding: 5px 10px;
+                outline: none;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-bottom: 2px solid #000;
+                transition-duration: 0.2s;
+                &:focus {
+                    border-bottom-color: $main;
+                }
+            }
+        }
+        div.button {
+            margin: 20px 10px;
+            padding: 10px 20px;
+            background-color: $main;
+            border: none;
+            border-radius: 10px;
+            color: $white;
+            cursor: pointer;
+        }
+    }
+}

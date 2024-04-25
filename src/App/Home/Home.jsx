@@ -1,13 +1,11 @@
+import { Layout } from "../Layout/Layout";
+
 function Home() {
     return (
-        <main>
-            <ul>
-                <li>Configuracion del sensor</li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </main>
+        <>
+        <Layout title="proyectos" />
+        <h1>Hola Mundo!</h1>
+        </>
     );
 }
 

@@ -1,35 +1,29 @@
-import { FaUser, FaLock } from "react-icons/fa";
-import { ReactComponent as Logo } from "../logo.svg";
-import "./login.scss";
 import { NavLink } from "react-router-dom";
+import { ReactComponent as Logo } from "../logo.svg";
+import "./Login.scss";
 
-function FormLogin({ setState }) {
+function LoginForm() {
     return (
         <form action="" method="get">
-            <span>
-                <label htmlFor="">
-                    <FaUser />
-                </label>
-                <input type="email" name="" id="" placeholder="user@unal.edu.co" />
-            </span>
-            <span>
-                <label htmlFor="">
-                    <FaLock />
-                </label>
-                <input type="password" name="" id="" placeholder="password" />
-            </span>
-            <button type="submit" onClick={() => setState("in")}><NavLink to="/app">Login</NavLink></button>
+            <label htmlFor="">
+                <input type="email" placeholder="name@email.com" name="" id="" />
+            </label>
+            <label htmlFor="">
+                <input type="password" placeholder="password" name="" id="" />
+            </label>
+            <NavLink to="/home">
+                <div className="button">Login</div>
+            </NavLink>
         </form>
     );
 }
 
-function Login({ setState }) {
+function Login() {
     return (
-        <main className="login">
+        <div id="login">
             <Logo />
-            <h1>BlueLog</h1>
-            <FormLogin setState={ setState } />
-        </main>
+            <LoginForm />
+        </div>
     );
 }
 
