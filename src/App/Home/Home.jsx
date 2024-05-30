@@ -32,35 +32,36 @@ function Home() {
   return (
     <div className="home">
       <Layout title="Mis proyectos" onAddFolder={handleAddFolder} />
-      <div className="folders-container">
-        {folders.map((folder, index) => (
-          <Folder
-            key={index}
-            name={folder.name}
-            image={folder.image}
-            onDelete={() => handleDeleteFolder(index)}
-          />
-        ))}
-      </div>
-      <div className="body">
-      {showForm && (
-        <form className="folder-form" onSubmit={handleFormSubmit}>
-          <input
-            type="text"
-            placeholder="Nombre de la carpeta"
-            value={newFolderName}
-            onChange={(e) => setNewFolderName(e.target.value)}
-            required
-          />
-          <input
-            type="file"
-            onChange={handleImageChange}
-            required
-          />
-          <button type="submit">Añadir nueva carpeta'</button>
-        </form>
+      {showForm ? (
+        <div className="body">
+          <form className="folder-form" onSubmit={handleFormSubmit}>
+            <input
+              type="text"
+              placeholder="Nombre de la carpeta"
+              value={newFolderName}
+              onChange={(e) => setNewFolderName(e.target.value)}
+              required
+            />
+            <input
+              type="file"
+              onChange={handleImageChange}
+              required
+            />
+            <button type="submit">Añadir nueva carpeta</button>
+          </form>
+        </div>
+      ) : (
+        <div className="folders-container">
+          {folders.map((folder, index) => (
+            <Folder
+              key={index}
+              name={folder.name}
+              image={folder.image}
+              onDelete={() => handleDeleteFolder(index)}
+            />
+          ))}
+        </div>
       )}
-      </div>
     </div>
   );
 }
