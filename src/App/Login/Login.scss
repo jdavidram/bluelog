@@ -1,73 +1,83 @@
 @import "../color";
 
-@keyframes logoAnime {
-    from {
-        width: calc(100%);
-        height: calc(100%);
-    }
-    to {
-        width: calc(60%);
-        height: calc(40%);
-    }
-}
-
-@keyframes showLogin {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
 div#login {
-    width: calc(100%);
-    height: calc(100vh);
+    width: calc(100vw - 40px);
+    max-width: 360px;
+    height: calc(100vh - 40px);
+    margin: 10px;
+    padding: 10px;
+    background-color: $grey;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     svg {
-        width: calc(100%);
-        height: calc(80%);
-        animation-name: logoAnime;
-        animation-delay: 1s;
-        animation-duration: 1s;
-        animation-fill-mode: forwards;
+        width: calc(50vw);
+        max-width: 200px;
+        height: calc(50vw);
+        max-height: 200px;
+        margin: 20px;
     }
     form {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
-        opacity: 0;
-        animation-name: showLogin;
-        animation-delay: 2s;
-        animation-duration: 1s;
-        animation-fill-mode: forwards;
         label {
             padding: 10px;
-            input {
-                padding: 5px 10px;
-                outline: none;
+            input[type="text"] {
+                padding: 10px;
                 border-top: none;
-                border-left: none;
-                border-right: none;
-                border-bottom: 2px solid #000;
-                transition-duration: 0.2s;
+                border-right: 5px solid $white;
+                border-bottom: none;
+                border-left: 5px solid $white;
+                border-radius: 10px;
+                text-align: center;
+                background-color: $white;
+                font-size: 15px;
+                transition: 0.5s all ease;
                 &:focus {
-                    border-bottom-color: $main;
+                    outline: none;
+                    border-right-color: $main;
+                    border-left-color: $main;
+                }
+            }
+            input[type="password"] {
+                padding: 10px;
+                border-top: none;
+                border-right: 5px solid $white;
+                border-bottom: none;
+                border-left: 5px solid $white;
+                border-radius: 10px;
+                text-align: center;
+                background-color: $white;
+                font-size: 15px;
+                transition: 0.5s all ease;
+                &:focus {
+                    outline: none;
+                    border-right-color: $main;
+                    border-left-color: $main;
                 }
             }
         }
-        div.button {
-            margin: 20px 10px;
-            padding: 10px 20px;
-            background-color: $main;
-            border: none;
-            border-radius: 10px;
-            color: $white;
-            cursor: pointer;
+        a {
+            text-decoration: none;
+            button {
+                margin: 10px;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 10px;
+                font-size: 15px;
+                cursor: pointer;
+                color: $white;
+                background-color: $black;
+                transition: 0.5s all ease;
+                &:hover {
+                    color: $black;
+                    background-color: $main;
+                }
+            }
         }
     }
 }
