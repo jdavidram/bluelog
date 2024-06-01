@@ -59,6 +59,11 @@ body {
             height: 30px;
             margin: 10px;
             fill: $main;
+            cursor: pointer;
+            &#plus {
+              rotate: 0deg;
+              transition: 0.5s all ease;
+            }
           }
         }
         h2 {

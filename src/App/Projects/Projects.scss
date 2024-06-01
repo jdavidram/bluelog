@@ -1,0 +1,93 @@
+@import "../color";
+
+form#addForm {
+    width: calc(100vw);
+    max-width: 400px;
+    height: calc(100vh - 70px);
+    background-color: $grey;
+    border-radius: 20px;
+    position: fixed;
+    top: calc(70px - 100vh);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: 0.5s all ease;
+    h4 {
+        padding: 10px;
+        color: $black;
+        strong {
+            color: $main;
+        }
+    }
+    label {
+        padding: 10px;
+        input[type="text"] {
+            padding: 10px;
+            border-top: none;
+            border-right: 5px solid $white;
+            border-bottom: none;
+            border-left: 5px solid $white;
+            border-radius: 10px;
+            text-align: center;
+            background-color: $white;
+            font-size: 15px;
+            transition: 0.5s all ease;
+            &:focus {
+                outline: none;
+                border-right-color: $main;
+                border-left-color: $main;
+            }
+        }
+    }
+    span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a {
+            text-decoration: none;
+            button {
+                margin: 10px;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 10px;
+                font-size: 15px;
+                cursor: pointer;
+                color: $white;
+                background-color: $black;
+                transition: 0.5s all ease;
+                &:hover {
+                    color: $black;
+                    background-color: $main;
+                }
+            }
+        }
+    }
+}
+
+section {
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    div.project {
+        width: calc(100% / 3);
+        height: 70px;
+        margin: 5px;
+        padding: 10px;
+        background-color: $grey;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        border-radius: 5px;
+        a {
+            text-decoration: none;
+            text-transform: capitalize;
+            color: $white;
+            font-size: 1.3em;
+            text-wrap: wrap;
+        }
+    }
+}
