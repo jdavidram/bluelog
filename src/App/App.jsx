@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import './App.scss';
 import { Animation } from './Animation';
 import { Login } from './Login/Login';
+import { Layout } from './Layout';
 
 function App() {
   return (
@@ -13,13 +14,13 @@ function App() {
           <Login />
         } />
         <Route path="/projects" element={
-          <h1>Hola Projects!!</h1>
+          <Layout title="projects"></Layout>
         } />
         <Route path="/anal/{id}" element={
-          <h1>Hola Analysis!!</h1>
+          <Layout title="analysis"></Layout>
         } />
         <Route path="/set/{id}" element={
-          <h1>Hola Settings</h1>
+          <Layout title="settings"></Layout>
         } />
         <Route path="/*" element={<h1 id="error">ERROR 404</h1>} />
       </Routes>

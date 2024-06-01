@@ -7,6 +7,7 @@
 }
 
 body {
+  background-color: $white;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -35,6 +36,35 @@ body {
         max-width: 250px;
         height: calc(60vw);
         max-height: 250px;
+      }
+    }
+    main#main {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 50px 1fr;
+      header {
+        padding: 0 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $black;
+        svg {
+          &:first-child {
+            width: 50px;
+            height: 50px;
+            background-color: $white;
+          }
+          &:last-child {
+            width: 30px;
+            height: 30px;
+            margin: 10px;
+            fill: $main;
+          }
+        }
+        h2 {
+          text-transform: capitalize;
+          color: $white;
+        }
       }
     }
   }
