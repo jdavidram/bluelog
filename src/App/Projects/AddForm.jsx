@@ -54,7 +54,7 @@ function AddForm({ data, setData }) {
                 <input type="text" name="itemName" id="itemName" placeholder="NOMBRE DEL PROYECTO" />
             </label>
             <span>
-                <NavLink to={ "/projects" }>
+                <NavLink to={ "/set" }>
                     <button type="submit" onClick={() => addItem(data, setData)}>Add</button>
                 </NavLink>
                 <NavLink to={ "/projects" }>

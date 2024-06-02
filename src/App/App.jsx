@@ -4,6 +4,7 @@ import { Animation } from './Animation';
 import { Login } from './Login/Login';
 import { Layout } from './Layout';
 import { Projects } from './Projects/Projects';
+import { Settings } from './Settings/Settings';
 
 function App() {
   return (
@@ -22,7 +23,9 @@ function App() {
           <Layout title="analysis"></Layout>
         } />
         <Route path="/set" element={
-          <Layout title="settings"></Layout>
+          <Layout title="settings">
+            <Settings />
+          </Layout>
         } />
         <Route path="/*" element={<h1 id="error">ERROR 404</h1>} />
       </Routes>

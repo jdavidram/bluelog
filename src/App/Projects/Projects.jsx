@@ -17,7 +17,7 @@ function Projects() {
     return (
         <>
         <AddForm data={ data } setData={ setData } />
-        <section>
+        <section className="projects">
             { data.map((item) => (
                 <ProjectItem key={ item.id } >{ item.title }</ProjectItem>
             )) }
