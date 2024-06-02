@@ -4,6 +4,8 @@
 
 * **Projects** El componente encargado de la vista de los proyectos y el formulario para agregar o eliminar proyectos
 
+> **Nota** Actualmente presenta problemas a la hora de eliminar algun item, ya q No lo hace inmediatamente
+
 * **Settings** El componente encargado de la configuracion del sensor para cada proyecto, basandonos en el diseño del Figma
 
 * **Login** El componente de Login

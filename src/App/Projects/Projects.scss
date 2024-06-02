@@ -54,7 +54,7 @@ form#addForm {
             color: $main;
             cursor: pointer;
         }
-        button {
+        div.button {
             margin: 10px;
             padding: 10px 20px;
             border: none;
@@ -76,7 +76,7 @@ section.projects {
     padding: 5px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     align-items: flex-start;
     div.project {
         width: calc(100% / 3);
@@ -91,12 +91,27 @@ section.projects {
         img {
             width: calc(100%);
         }
-        a {
-            text-decoration: none;
-            text-transform: capitalize;
-            color: $white;
-            font-size: 1.3em;
-            text-wrap: wrap;
+        span {
+            width: calc(100%);
+            padding: 10px 0 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            a {
+                text-decoration: none;
+                text-transform: capitalize;
+                color: $white;
+                font-size: 1.3em;
+                text-wrap: wrap;
+            }
+            svg {
+                fill: $white;
+                cursor: pointer;
+                transition: 0.5s all ease;
+                &:hover {
+                    fill: $main;
+                }
+            }
         }
     }
 }

@@ -1,31 +1,34 @@
 import { useState } from "react";
 
-function AddForm() {
+function AddForm({ folders, setFolders }) {
     // ESTADOS
-    const [newFolder, setNewFolder] = useState({
-        "name": "",
-        "image": "Imagen de la carpeta"
-    });
+    const [image, setImage] = useState("Imagen de la carpeta");
     // FUNCIONES
-    const formChangeName = (e) => {
-        newFolder["name"] = e.target.value;
-    };
     const formChangeImage = (e) => {
         let img = e.target.value.split("\\");
-        newFolder["image"] = img[img.length -1];
+        setImage(img[img.length -1]);
+    };
+    const addFolder = () => {
+        let name = document.getElementById("name").value;
+        let img = document.getElementById("image").value.replaceAll("\\", "/");
+        setFolders([...folders, {
+            "name": name,
+            "image": img
+        }]);
+        // console.log(folders);
     };
     return (
         <form id="addForm">
-            <h4>Actualmente tienes <strong>{ 5 }</strong> proyectos</h4>
+            <h4>Actualmente tienes <strong>{ folders.length }</strong> proyectos</h4>
             <span>
-                <input type="text" id="itemName" placeholder="NOMBRE DEL PROYECTO" onChange={(e) => formChangeName(e)} />
+                <input type="text" id="name" placeholder="NOMBRE DEL PROYECTO" />
             </span>
             <span>
                 <input type="file" id="image" onChange={(e) => formChangeImage(e)} />
-                <label htmlFor="image">{ newFolder["image"] }</label>
+                <label htmlFor="image">{ image }</label>
             </span>
             <span>
-                <button type="submit">Add</button>
+                <div className="button" onClick={() => addFolder()} >Add</div>
             </span>
         </form>
     );
