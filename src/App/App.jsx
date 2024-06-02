@@ -5,6 +5,8 @@ import { Login } from './Login/Login';
 import { Layout } from './Layout';
 import { Projects } from './Projects/Projects';
 import { Settings } from './Settings/Settings';
+import { Home } from './Home/Home';
+import { FolderView } from './FolderView/FolderView';
 
 function App() {
   return (
@@ -27,7 +29,11 @@ function App() {
             <Settings />
           </Layout>
         } />
+        <Route path="/folder/:folderName" element=
+        {<FolderView />} />
+
         <Route path="/*" element={<h1 id="error">ERROR 404</h1>} />
+
       </Routes>
     </HashRouter>
   );
