@@ -1,7 +1,7 @@
 // FolderView.jsx
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Layout } from '../Layout/Layout';
+import { Layout } from '../Layout';
 
 function FolderView() {
   const { folderName } = useParams();

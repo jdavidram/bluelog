@@ -22,7 +22,7 @@ function Projects() {
         <section className="projects">
             { folders.map((i) => (
                 <ProjectItem 
-                    key={ i.id }
+                    key={ folders.indexOf(i) }
                     title={ i.title }
                     image={ i.image }
                 />
