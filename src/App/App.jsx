@@ -1,8 +1,9 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+//import { useState } from 'react';
 import './App.scss';
 import { Login } from './Login/Login';
 import { Home } from './Home/Home';
+import { FolderView } from './FolderView/FolderView';
 
 function App() {
   return (
@@ -17,7 +18,11 @@ function App() {
         <Route path="/proj/{id}" element={
           <Home />
         } />
+        <Route path="/folder/:folderName" element=
+        {<FolderView />} />
+
         <Route path="/*" element={<h1 id="error">ERROR 404</h1>} />
+
       </Routes>
     </HashRouter>
   );

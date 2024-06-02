@@ -1,4 +1,6 @@
+// Home.jsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Folder } from '../Folder/Folder';
 import { Layout } from '../Layout/Layout';
 import './Home.css';
@@ -8,6 +10,7 @@ function Home() {
   const [showForm, setShowForm] = useState(false);
   const [newFolderName, setNewFolderName] = useState('');
   const [newFolderImage, setNewFolderImage] = useState(null);
+  const navigate = useNavigate();
 
   const handleAddFolder = () => {
     setShowForm(true);
@@ -27,6 +30,10 @@ function Home() {
 
   const handleDeleteFolder = (index) => {
     setFolders(folders.filter((_, i) => i !== index));
+  };
+
+  const handleFolderClick = (folderName) => {
+    navigate(`/folder/${folderName}`);
   };
 
   return (
@@ -58,6 +65,7 @@ function Home() {
               name={folder.name}
               image={folder.image}
               onDelete={() => handleDeleteFolder(index)}
+              onClick={() => handleFolderClick(folder.name)}
             />
           ))}
         </div>
