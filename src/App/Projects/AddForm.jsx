@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 function addItem(data, setData) {
@@ -46,20 +47,43 @@ function deleteItem(data, setData) {
     }
 }
 
-function AddForm({ data, setData }) {
+function AddForm({ folders, setFolders }) {
+    // ESTADOS
+    const [newFolder, setNewFolder] = useState({
+        "name": "",
+        "image": "imagen del proyecto"
+    });
+    const [action, setAction] = useState(true);
+    // FUNCIONES
+    const handleFormSubmit = () => {
+        if (action) {
+            setFolders([...folders, newFolder]);
+            setNewFolder({
+                "name": "",
+                "image": "imagen del proyecto"
+            });
+        } else {
+            alert("deleted");
+        }
+    }
+    const handleImageChange = (e) => {
+        let img = e.target.value.split("\\");
+        newFolder["image"] = img[img.length -1];
+        setNewFolder(newFolder);
+    }
     return (
-        <form action="" method="post" id="addForm">
-            <h4>Actualmente tienes <strong>{ data.length }</strong> proyectos</h4>
-            <label htmlFor="itemName">
-                <input type="text" name="itemName" id="itemName" placeholder="NOMBRE DEL PROYECTO" />
-            </label>
+        <form id="addForm" onSubmit={handleFormSubmit}>
+            <h4>Actualmente tienes <strong>{ folders.length }</strong> proyectos</h4>
             <span>
-                <NavLink to={ "/set" }>
-                    <button type="submit" onClick={() => addItem(data, setData)}>Add</button>
-                </NavLink>
-                <NavLink to={ "/projects" }>
-                    <button type="submit" onClick={() => deleteItem(data, setData)}>Delete</button>
-                </NavLink>
+                <input type="text" id="itemName" placeholder="NOMBRE DEL PROYECTO" onChange={(e) => newFolder["name"] = e.target.value} />
+            </span>
+            <span>
+                <input type="file" id="image" onChange={(e) => handleImageChange(e)} />
+                <label htmlFor="image">{ newFolder["image"] }</label>
+            </span>
+            <span>
+                <button type="submit">Add</button>
+                <button type="submit" onClick={() => setAction(false)}>Delete</button>
             </span>
         </form>
     );

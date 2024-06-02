@@ -21,8 +21,11 @@ form#addForm {
             color: $main;
         }
     }
-    label {
+    span {
         padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         input[type="text"] {
             padding: 10px;
             border-top: none;
@@ -40,27 +43,30 @@ form#addForm {
                 border-left-color: $main;
             }
         }
-    }
-    span {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        a {
-            text-decoration: none;
-            button {
-                margin: 10px;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 10px;
-                font-size: 15px;
-                cursor: pointer;
-                color: $white;
-                background-color: $black;
-                transition: 0.5s all ease;
-                &:hover {
-                    color: $black;
-                    background-color: $main;
-                }
+        input[type="file"] {
+            display: none;
+        }
+        label {
+            padding: 10px 20px;
+            background-color: $black;
+            border-radius: 10px;
+            font-weight: 500;
+            color: $main;
+            cursor: pointer;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
+            color: $white;
+            background-color: $black;
+            transition: 0.5s all ease;
+            &:hover {
+                color: $black;
+                background-color: $main;
             }
         }
     }
@@ -74,14 +80,17 @@ section.projects {
     align-items: flex-start;
     div.project {
         width: calc(100% / 3);
-        height: 70px;
         margin: 5px;
         padding: 10px;
         background-color: $grey;
         display: flex;
-        justify-content: flex-start;
+        justify-content: flex-end;
         align-items: flex-end;
+        flex-wrap: wrap;
         border-radius: 5px;
+        img {
+            width: calc(100%);
+        }
         a {
             text-decoration: none;
             text-transform: capitalize;

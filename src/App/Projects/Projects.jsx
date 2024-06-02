@@ -4,22 +4,28 @@ import dataJSON from "./database.json";
 import { AddForm } from "./AddForm";
 import { useState } from "react";
 
-function ProjectItem({ id, children }) {
+function ProjectItem({ title, image }) {
     return (
         <div className="project">
-            <NavLink to={ "/anal" }>{ children }</NavLink>
+            <img src={ image } alt={ title } />
+            <NavLink to={ "/anal" }>{ title }</NavLink>
         </div>
     );
 }
 
 function Projects() {
-    const [data, setData] = useState(dataJSON["projects"])
+    console.log(dataJSON["projects"]);
+    const [folders, setFolders] = useState(dataJSON["projects"]);
     return (
         <>
-        <AddForm data={ data } setData={ setData } />
+        <AddForm folders={ folders } setFolders={ setFolders } />
         <section className="projects">
-            { data.map((item) => (
-                <ProjectItem key={ item.id } >{ item.title }</ProjectItem>
+            { folders.map((i) => (
+                <ProjectItem 
+                    key={ i.id }
+                    title={ i.title }
+                    image={ i.image }
+                />
             )) }
         </section>
         </>
