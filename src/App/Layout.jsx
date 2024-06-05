@@ -2,6 +2,7 @@ import { FaPlus, FaChartLine } from "react-icons/fa6";
 import { IoMdSettings } from "react-icons/io";
 import { useState } from "react";
 import { ReactComponent as Logo } from "./logo.svg";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function showForm(add, setAdd) {
     var plus = document.getElementById("plus");
@@ -20,16 +21,22 @@ function showForm(add, setAdd) {
 
 function Header({ title }) {
     const [add, setAdd] = useState("225deg");
+    const location = useLocation();
+    const navigate = useNavigate();
+
     const reactIcons = {
         "projects": <FaPlus id="plus" onClick={() => showForm(add, setAdd)} />,
         "analysis": <FaChartLine />,
-        "settings": <IoMdSettings />
-    }
+        "settings": <IoMdSettings onClick={() => navigate('/set')} />
+    };
+
+    const currentIcon = location.pathname === '/anal' ? reactIcons['settings'] : reactIcons[title];
+
     return (
         <header>
             <Logo />
             <h2>{ title }</h2>
-            { reactIcons[title] }
+            { currentIcon }
         </header>
     );
 }
@@ -43,4 +50,4 @@ function Layout({ children, title }) {
     );
 }
 
-export { Layout }
+export { Layout };

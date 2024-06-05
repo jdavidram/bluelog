@@ -1,4 +1,5 @@
-import { FaBluetooth, FaWifi, FaDatabase } from "react-icons/fa6";
+import React from "react";
+import { FaBluetooth, FaDatabase } from "react-icons/fa";
 import { CiWavePulse1 } from "react-icons/ci";
 import { NavLink } from "react-router-dom";
 import "./Settings.scss";
@@ -6,19 +7,8 @@ import "./Settings.scss";
 function Settings() {
     return (
         <section className="settings">
-            <article>
-                <span>
-                    <FaBluetooth />
-                    <h4>Bluetooth</h4>
-                </span>
-            </article>
-            <article>
-                <span>
-                    <FaWifi />
-                    <h4>Wifi</h4>
-                </span>
-            </article>
-            <article>
+            <Button icon={<FaBluetooth />} name="Bluetooth" />
+            <article className="article">
                 <span>
                     <CiWavePulse1 />
                     <h4>Frecuencia</h4>
@@ -27,7 +17,7 @@ function Settings() {
                     <input type="range" name="frecuency" id="frecuency" min="0" max="10" />
                 </label>
             </article>
-            <article>
+            <article className="article">
                 <span>
                     <FaDatabase />
                     <h4>Database</h4>
@@ -37,9 +27,21 @@ function Settings() {
                 </label>
             </article>
             <NavLink to="/anal">
-                <button>Start</button>
+                <button className="start-button">Start</button>
             </NavLink>
         </section>
+    );
+}
+
+function Button({ icon, name, children }) {
+    return (
+        <button className="button">
+            <span>
+                {icon}
+                <h4>{name}</h4>
+            </span>
+            {children} {/* Renderiza el input si está presente */}
+        </button>
     );
 }
 
