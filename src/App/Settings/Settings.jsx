@@ -1,13 +1,19 @@
 import React from "react";
 import { FaBluetooth, FaDatabase } from "react-icons/fa";
 import { CiWavePulse1 } from "react-icons/ci";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./Settings.scss";
 
 function Settings() {
+    let navigate = useNavigate();
+
+    const handleBluetoothClick = () => {
+        navigate('/bluetooth');
+    };
+
     return (
         <section className="settings">
-            <Button icon={<FaBluetooth />} name="Bluetooth" />
+            <Button icon={<FaBluetooth />} name="Bluetooth" onClick={handleBluetoothClick} />
             <article className="article">
                 <span>
                     <CiWavePulse1 />
@@ -33,9 +39,9 @@ function Settings() {
     );
 }
 
-function Button({ icon, name, children }) {
+function Button({ icon, name, onClick, children }) {
     return (
-        <button className="button">
+        <button className="button" onClick={onClick}>
             <span>
                 {icon}
                 <h4>{name}</h4>

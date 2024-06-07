@@ -5,6 +5,7 @@ import { Login } from './Login/Login';
 import { Layout } from './Layout';
 import { Projects } from './Projects/Projects';
 import { Settings } from './Settings/Settings';
+import { Bluetooth } from './Settings/Bluetooth';
 
 function App() {
   return (
@@ -25,6 +26,11 @@ function App() {
         <Route path="/set" element={
           <Layout title="settings">
             <Settings />
+          </Layout>
+        } />
+        <Route path="/bluetooth" element={
+          <Layout title="Bluetooth">
+            <Bluetooth />
           </Layout>
         } />
         <Route path="/*" element={<h1 id="error">ERROR 404</h1>} />
