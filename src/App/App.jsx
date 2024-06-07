@@ -6,6 +6,7 @@ import { Layout } from './Layout';
 import { Projects } from './Projects/Projects';
 import { Settings } from './Settings/Settings';
 import { Bluetooth } from './Settings/Bluetooth';
+import {Analyst} from './Analyst/Analyst';
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
           </Layout>
         } />
         <Route path="/anal" element={
-          <Layout title="analysis"></Layout>
+          <Layout title="analysis">
+            <Analyst />
+            </Layout>
         } />
         <Route path="/set" element={
           <Layout title="settings">

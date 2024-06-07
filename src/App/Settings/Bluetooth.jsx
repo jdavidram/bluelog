@@ -21,11 +21,11 @@ function Bluetooth() {
 
     return (
         <div className="bluetooth-container">
-            <button className="scan-button" onClick={handleScan}>Buscar dispositivos</button>
+            <button className="scan-button" onClick={handleScan}>Buscar Dispositivos</button>
             {error && <p>Error: {error}</p>}
             <ul>
                 {devices.map((device, index) => (
-                    <li key={index}>{device.name || `Device ${index + 1}`}</li>
+                    <li key={index}>{device.name || `Dispositivo ${index + 1}`}</li>
                 ))}
             </ul>
         </div>

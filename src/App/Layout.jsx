@@ -1,5 +1,5 @@
 import { FaPlus, FaChartLine } from "react-icons/fa6";
-import { IoMdSettings } from "react-icons/io";
+import { IoMdSettings, IoMdArrowBack } from "react-icons/io";
 import { useState } from "react";
 import { ReactComponent as Logo } from "./logo.svg";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -36,7 +36,11 @@ function Header({ title }) {
         <header>
             <Logo />
             <h2>{ title }</h2>
-            { currentIcon }
+            { (location.pathname === '/bluetooth' || location.pathname === '/set') ? (
+                <IoMdArrowBack onClick={() => navigate(-1)} />
+            ) : (
+                currentIcon
+            )}
         </header>
     );
 }
