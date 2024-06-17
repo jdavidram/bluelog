@@ -1,7 +1,7 @@
 import { FaPlus, FaChartLine } from "react-icons/fa6";
 import { IoMdSettings, IoMdArrowBack } from "react-icons/io";
 import { useState } from "react";
-import { ReactComponent as Logo } from "./logo.svg";
+import { ReactComponent as Logo } from "../logo.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function showForm(add, setAdd) {

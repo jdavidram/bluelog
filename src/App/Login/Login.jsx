@@ -4,15 +4,12 @@ import { ReactComponent as Logo } from "../logo.svg";
 import "./Login.scss";
 import data from "../data.json";
 
-function validUser() {
+function validUser(targetValue) {
     var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    if (data[username] !== undefined) {
-        if (data[username].password !== password) {
-            alert("Contrasena No valida");
-        }
+    if (data[username] !== undefined && data[username].password === targetValue) {
+        return "projects";
     } else {
-        alert("Usuario No valido");
+        return "";
     }
 }
 
@@ -27,11 +24,11 @@ function Login() {
                 </label>
                 <label htmlFor="password">
                     <input type="password" name="password" id="password" placeholder="password" onChange={(event) => { 
-                        setValid(( data[document.getElementById("username").value].password === event.target.value ) ? "projects" : "");
+                        setValid(validUser(event.target.value));
                      }} />
                 </label>
                 <NavLink to={ "/" + valid }>
-                    <div className="button" onClick={() => validUser()}>Login</div>
+                    <div className="button">Login</div>
                 </NavLink>
             </form>
         </div>
