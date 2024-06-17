@@ -30,7 +30,7 @@ div#login {
                 padding: 10px;
                 border-top: none;
                 border-right: 5px solid $white;
-                border-bottom: none;
+                border-bottom: 2px solid $grey;
                 border-left: 5px solid $white;
                 border-radius: 10px;
                 text-align: center;
@@ -63,7 +63,7 @@ div#login {
         }
         a {
             text-decoration: none;
-            button {
+            div.button {
                 margin: 10px;
                 padding: 10px 20px;
                 border: none;

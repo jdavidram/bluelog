@@ -1,8 +1,8 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import './App.scss';
-import { Animation } from './Animation';
+import { Animation } from './Layout/Animation';
 import { Login } from './Login/Login';
-import { Layout } from './Layout';
+import { Layout } from './Layout/Layout';
 import { Projects } from './Projects/Projects';
 import { Settings } from './Settings/Settings';
 import { Bluetooth } from './Settings/Bluetooth';
