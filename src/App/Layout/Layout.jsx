@@ -36,7 +36,7 @@ function Header({ title }) {
         <header>
             <Logo />
             <h2>{ title }</h2>
-            { (location.pathname === '/bluetooth' || location.pathname === '/set') ? (
+            { (location.pathname === '/bluetooth' || location.pathname === '/set' || location.pathname === '/estadistics'|| location.pathname === '/graphics'|| location.pathname === '/config') ? (
                 <IoMdArrowBack onClick={() => navigate(-1)} />
             ) : (
                 currentIcon

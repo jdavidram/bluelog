@@ -7,6 +7,9 @@ import { Projects } from './Projects/Projects';
 import { Settings } from './Settings/Settings';
 import { Bluetooth } from './Settings/Bluetooth';
 import {Analyst} from './Analyst/Analyst';
+import {Estadistics} from './Analyst/Estadistics';
+import {Graphics} from './Analyst/Graphics';
+import {Config} from './Analyst/Config';
 
 function App() {
   return (
@@ -25,6 +28,21 @@ function App() {
           <Layout title="analysis">
             <Analyst />
             </Layout>
+        } />
+        <Route path="/estadistics" element={
+          <Layout title="Estadísticos">
+            <Estadistics />
+          </Layout>
+        } />
+        <Route path="/graphics" element={
+          <Layout title="Gráficos">
+            <Graphics />
+          </Layout>
+        } />
+        <Route path="/config" element={
+          <Layout title="Configuracion">
+            <Config />
+          </Layout>
         } />
         <Route path="/set" element={
           <Layout title="settings">
