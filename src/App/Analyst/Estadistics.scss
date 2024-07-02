@@ -1,19 +1,60 @@
-.estadistics-container {
-    position: relative;
-    padding: 20px;
-}
+@import "../color";
 
-.back-button {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background: none;
+.action-button {
+    background-color: $main;
+    color: white;
     border: none;
-    font-size: 24px;
+    border-radius: 4px;
+    width: 120px;
+    height: 40px;
     cursor: pointer;
-    z-index: 1000;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 
     &:hover {
-        color: #000; // Cambia a tu color deseado en hover
+        background-color: $black;
+    }
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+        white-space: nowrap;  // Evita que el texto se superponga
+    }
+
+    th {
+        background-color: #f2f2f2;
+        position: sticky;
+        top: 0;
+    }
+
+    tbody {
+        display: block;
+        max-height: 250px;
+        overflow-y: auto;
+    }
+
+    tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;  // Asegura que las columnas mantengan un tamaño fijo
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #ddd;
     }
 }
