@@ -2,6 +2,18 @@ import React, { useState } from 'react';
 import './Bluetooth.scss';
 
 function Bluetooth() {
+    const connectBluetooth = async () => {
+        try {
+            const device = await navigator.bluetooth.requestDevice({
+                acceptAllDevices: true
+                // filters: [{ name: "MyDevice" }]
+            })
+            console.log(device);
+        } catch (error) {
+            console.error("Error requesting device:", error);
+        }
+    }
+
     const [devices, setDevices] = useState([]);
     const [error, setError] = useState(null);
     const [connectedDevice, setConnectedDevice] = useState(null);
@@ -33,7 +45,7 @@ function Bluetooth() {
 
     return (
         <div className="bluetooth-container">
-            <button className="scan-button" onClick={handleScan}>Buscar Dispositivos</button>
+            <button className="scan-button" onClick={connectBluetooth}>Buscar Dispositivos</button>
             {error && <p>Error: {error}</p>}
             <ul>
                 {devices.map((device, index) => (
