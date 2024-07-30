@@ -1,5 +1,14 @@
 {
     "username": {
-        "password": "bluelog"
+        "password": "bluelog",
+        "projects": [
+            {
+                "name": "tumaco",
+                "image": "https://th.bing.com/th/id/OIP.BQ4vJL3KnH3hJN3R1Q2z3gHaE8?rs=1&pid=ImgDetMain"
+            }, {
+                "name": "medellin",
+                "image": "https://th.bing.com/th/id/OIP.BQ4vJL3KnH3hJN3R1Q2z3gHaE8?rs=1&pid=ImgDetMain"
+            }
+        ]
     }
 }

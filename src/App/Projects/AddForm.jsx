@@ -1,9 +1,7 @@
 import { useState } from "react";
 
 function AddForm({ folders, setFolders }) {
-    // ESTADOS
     const [image, setImage] = useState("Imagen de la carpeta");
-    // FUNCIONES
     const formChangeImage = (e) => {
         let img = e.target.value.split("\\");
         setImage(img[img.length -1]);
@@ -15,7 +13,7 @@ function AddForm({ folders, setFolders }) {
             "name": name,
             "image": img
         }]);
-        // console.log(folders);
+        console.log(folders);
     };
     return (
         <form id="addForm">

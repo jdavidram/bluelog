@@ -1,12 +1,11 @@
 import { NavLink } from "react-router-dom";
 import "./Projects.scss";
-import dataJSON from "./database.json";
+import dataJSON from "../data.json";
 import { AddForm } from "./AddForm";
 import { useState } from "react";
 import { FaX } from "react-icons/fa6";
 
 function ProjectItem({ index, name, image, folders, setFolders }) {
-    // FUNCIONES
     const deleteFolder = (index) => {
         folders.splice(index, 1);
         // console.log(folders);
@@ -24,7 +23,7 @@ function ProjectItem({ index, name, image, folders, setFolders }) {
 }
 
 function Projects() {
-    const [folders, setFolders] = useState(dataJSON["projects"]);
+    const [folders, setFolders] = useState(dataJSON["username"]["projects"]);
     return (
         <>
         <AddForm folders={ folders } setFolders={ setFolders } />
@@ -34,7 +33,7 @@ function Projects() {
                     key={ folders.indexOf(i) }
                     index={ folders.indexOf(i) }
                     name={ i.name }
-                    image={ "https://th.bing.com/th/id/OIP.BQ4vJL3KnH3hJN3R1Q2z3gHaE8?rs=1&pid=ImgDetMain" }
+                    image={ i.image }
                     folders={ folders }
                     setFolders={ setFolders }
                 />

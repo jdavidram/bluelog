@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Papa from 'papaparse';
 import './Analyst.scss';
+
 function Analyst() {
     const [tableData, setTableData] = useState([]);
     const navigate = useNavigate();  // Definir navigate
@@ -90,7 +91,7 @@ function Analyst() {
             <div className="button-container">
                 <button className="action-button" onClick={() => navigate('/estadistics')}>Estadísticos</button>
                 <button className="action-button" onClick={() => navigate('/graphics')}>Gráficos</button>
-                <button className="action-button" onClick={() => navigate('/config')}>Configuración</button>
+                <button className="action-button" onClick={() => navigate('/set')}>Configuración</button>
             </div>
         </div>
     );
