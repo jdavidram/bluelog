@@ -9,7 +9,6 @@ import { Bluetooth } from './Settings/Bluetooth';
 import {Analyst} from './Analyst/Analyst';
 import {Estadistics} from './Analyst/Estadistics';
 import {Graphics} from './Analyst/Graphics';
-import {Config} from './Analyst/Config';
 
 function App() {
   return (
@@ -41,7 +40,7 @@ function App() {
         } />
         <Route path="/config" element={
           <Layout title="Configuracion">
-            <Config />
+            <Settings />
           </Layout>
         } />
         <Route path="/set" element={
