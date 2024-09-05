@@ -7,6 +7,7 @@ function Analyst() {
     const [tableData, setTableData] = useState([]);
     const navigate = useNavigate();  // Definir navigate
 
+    
     // Cargar los datos del archivo CSV desde localStorage al inicio
     useEffect(() => {
         const storedData = JSON.parse(localStorage.getItem('csvData'));

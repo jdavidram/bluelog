@@ -26,16 +26,59 @@ section.settings {
         }
     }
 
-    /* Estilos para el input de tipo file en el artículo de Database */
-    .article input[type="file"] {
-        /* Estilos específicos para el input de tipo file */
-        /* Por ejemplo, puedes cambiar el color de fondo y el color del texto */
-        background-color: #f0f0f0;
-        color: #333;
-        /* Agrega otros estilos según sea necesario */
-        font-size: 12px; /* Tamaño de fuente más pequeño */
-        text-align: center; /* Centra el texto horizontalmente */
-        margin-top: 5px; /* Espacio entre el icono y el input */
+    /* Estilos para el formulario de frecuencia y muestreo */
+    form {
+        display: flex;
+        flex-direction: column; /* Alinea los campos del formulario en columna */
+        align-items: center; /* Centra los campos horizontalmente */
+        width: 100%; /* Ajusta el ancho del formulario */
+        margin-top: 20px; /* Espacio entre el formulario y los elementos superiores */
+
+        label {
+            display: flex;
+            flex-direction: column; /* Alinea el label y el input en columna */
+            align-items: center; /* Centra el contenido del label horizontalmente */
+            margin-bottom: 15px; /* Espacio entre los labels */
+            width: 80%; /* Ancho del label */
+
+            h4 {
+                margin-bottom: 5px; /* Espacio entre el texto del label y el input */
+                color: $black; /* Color del texto del label */
+                font-size: 14px; /* Tamaño de fuente */
+            }
+
+            input {
+                width: 100%; /* Ancho completo del input */
+                padding: 8px; /* Espaciado interno del input */
+                border: 1px solid $black; /* Borde del input */
+                border-radius: 5px; /* Bordes redondeados */
+                font-size: 14px; /* Tamaño de fuente */
+                text-align: center; /* Centra el texto dentro del input */
+                margin-top: 5px; /* Espacio entre el label y el input */
+
+                &:focus {
+                    outline: none; /* Elimina el borde predeterminado en foco */
+                    border-color: $main; /* Color del borde en foco */
+                    box-shadow: 0 0 5px $main; /* Sombra en foco */
+                }
+            }
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
+            color: $white;
+            background-color: $black;
+            transition: 0.5s all ease;
+
+            &:hover {
+                color: $black;
+                background-color: $main;
+            }
+        }
     }
 
     a {
@@ -59,3 +102,4 @@ section.settings {
         }
     }
 }
+    

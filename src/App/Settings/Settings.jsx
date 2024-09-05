@@ -1,40 +1,70 @@
-import React from "react";
-import { FaBluetooth, FaDatabase } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaBluetooth } from "react-icons/fa";
 import { CiWavePulse1 } from "react-icons/ci";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Settings.scss";
 
 function Settings() {
     let navigate = useNavigate();
+    const [frecuencia, setFrecuencia] = useState('');
+    const [muestreo, setMuestreo] = useState('');
 
     const handleBluetoothClick = () => {
         navigate('/bluetooth');
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        // Aquí puedes manejar los datos del formulario
+        console.log('Frecuencia:', frecuencia);
+        console.log('Muestreo:', muestreo);
+
+        // Limpiar campos después de enviar
+        setFrecuencia('');
+        setMuestreo('');
+    };
+
     return (
         <section className="settings">
             <Button icon={<FaBluetooth />} name="Bluetooth" onClick={handleBluetoothClick} />
+            
             <article className="article">
                 <span>
                     <CiWavePulse1 />
                     <h4>Frecuencia</h4>
                 </span>
-                <label htmlFor="frecuency">
-                    <input type="range" name="frecuency" id="frecuency" min="0" max="10" />
-                </label>
-            </article>
-            <article className="article">
-                <span>
-                    <FaDatabase />
-                    <h4>Database</h4>
-                </span>
-                <label htmlFor="database">
-                    <input type="file" name="database" id="database" />
-                </label>
-            </article>
-            <NavLink to="/anal">
-                <button className="start-button">Start</button>
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="frecuencia">
+                        <input
+                            type="number"
+                            name="frecuencia"
+                            id="frecuencia"
+                            value={frecuencia}
+                            onChange={(e) => setFrecuencia(e.target.value)}
+                            min="1"
+                            max="5000"
+                            required
+                        />
+                    </label>
+                    <label htmlFor="muestreo">
+                        <h4>Muestreo</h4>
+                        <input
+                            type="number"
+                            name="muestreo"
+                            id="muestreo"
+                            value={muestreo}
+                            onChange={(e) => setMuestreo(e.target.value)}
+                            required
+                        />
+                    </label>
+                    <NavLink to="/anal">
+                    <button className="start-button">Enviar</button>
             </NavLink>
+                </form>
+            </article>
+
+
         </section>
     );
 }
