@@ -31,12 +31,13 @@ function Header({ title }) {
     };
 
     const currentIcon = location.pathname === '/anal' ? reactIcons['settings'] : reactIcons[title];
+    const routes = ["/anal", "/graphics", "/estadistics", "/set", "/set/bluetooth"];
 
     return (
         <header>
             <Logo />
             <h2>{ title }</h2>
-            { (location.pathname === '/bluetooth' || location.pathname === '/set' || location.pathname === '/estadistics'|| location.pathname === '/graphics'|| location.pathname === '/anal') ? (
+            { (routes.indexOf(location.pathname) >= 0) ? (
                 <IoMdArrowBack onClick={() => navigate(-1)} />
             ) : (
                 currentIcon

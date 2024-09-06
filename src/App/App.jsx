@@ -1,4 +1,5 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 import './App.scss';
 import { Animation } from './Layout/Animation';
 import { Login } from './Login/Login';
@@ -11,6 +12,12 @@ import {Estadistics} from './Analyst/Estadistics';
 import {Graphics} from './Analyst/Graphics';
 
 function App() {
+  const [sensor, setSensor] = useState({
+    "bluetooth": "",
+    "frecuency": "",
+    "muestreo": "",
+    "periodo": ""
+  });
   return (
     <HashRouter>
       <Animation />
@@ -45,12 +52,12 @@ function App() {
         } />
         <Route path="/set" element={
           <Layout title="settings">
-            <Settings />
+            <Settings sensor={ sensor } setSensor={ setSensor } />
           </Layout>
         } />
-        <Route path="/bluetooth" element={
+        <Route path="/set/bluetooth" element={
           <Layout title="Bluetooth">
-            <Bluetooth />
+            <Bluetooth sensor={ sensor } setSensor={ setSensor } />
           </Layout>
         } />
         <Route path="/*" element={<h1 id="error">ERROR 404</h1>} />
