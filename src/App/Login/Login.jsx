@@ -5,7 +5,7 @@ import "./Login.scss";
 import data from "../data.json";
 
 function validUser(targetValue) {
-    var username = document.getElementById("username").value;
+    var username = document.getElementById("juanda").value;
     if (data[username] !== undefined && data[username].password === targetValue) {
         return "projects";
     } else {
