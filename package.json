@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "antd": "^5.20.5",
     "d3": "^7.9.0",
     "pandas-js": "^0.2.4",
     "papaparse": "^5.4.1",
@@ -16,7 +17,9 @@
     "react-router-dom": "^6.22.3",
     "react-scripts": "^5.0.1",
     "sass": "^1.72.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "webpack": "^5.94.0",
+    "webpack-dev-server": "^5.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

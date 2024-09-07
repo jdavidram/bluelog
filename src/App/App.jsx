@@ -9,11 +9,14 @@ import { Bluetooth } from './Settings/Bluetooth';
 import {Analyst} from './Analyst/Analyst';
 import {Estadistics} from './Analyst/Estadistics';
 import {Graphics} from './Analyst/Graphics';
+import React from 'react';
+import { DatePicker } from 'antd';
 
 function App() {
   return (
     <HashRouter>
       <Animation />
+      <DatePicker />
       <Routes>
         <Route path="/" element={
           <Login />
