@@ -1,29 +1,33 @@
 import { NavLink } from "react-router-dom";
 import "./Projects.scss";
-import dataJSON from "../data.json";
 import { AddForm } from "./AddForm";
 import { useState } from "react";
 import { FaX } from "react-icons/fa6";
 
-function ProjectItem({ index, name, image, folders, setFolders }) {
-    const deleteFolder = (index) => {
-        folders.splice(index, 1);
-        // console.log(folders);
-        setFolders(folders);
-    };
+function ProjectItem({ key, name, image, onDelete }) {
     return (
         <div className="project">
             <img src={ image } alt={ name } />
             <span>
                 <NavLink to={ "/anal" }>{ name }</NavLink>
-                <FaX onClick={() => deleteFolder(index)} />
+                <FaX onClick={() => onDelete(key)} />
             </span>
         </div>
     );
 }
 
 function Projects() {
-    const [folders, setFolders] = useState(dataJSON["username"]["projects"]);
+    const [folders, setFolders] = useState([{
+        "name": "Medellin",
+        "image": "https://th.bing.com/th/id/OIP.BQ4vJL3KnH3hJN3R1Q2z3gHaE8?rs=1&pid=ImgDetMain"
+    }]);
+    const deleteFolder = (key) => {
+        var newFolders = [...folders];
+        newFolders.splice(key, 1);
+        console.log(newFolders);
+        alert("Haz eliminado una carpeta");
+        setFolders(newFolders);
+    };
     return (
         <>
         <AddForm folders={ folders } setFolders={ setFolders } />
@@ -34,8 +38,7 @@ function Projects() {
                     index={ folders.indexOf(i) }
                     name={ i.name }
                     image={ i.image }
-                    folders={ folders }
-                    setFolders={ setFolders }
+                    onDelete={() => deleteFolder()}
                 />
             )) }
         </section>
