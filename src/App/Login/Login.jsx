@@ -13,6 +13,12 @@ function validUser(targetValue) {
     }
 }
 
+function wrongPass(valid) {
+    if (valid === "") {
+        alert("Usuario o contraseña incorrectos");
+    }
+}
+
 function Login() {
     const [valid, setValid] = useState("");
     return (
@@ -28,7 +34,7 @@ function Login() {
                      }} />
                 </label>
                 <NavLink to={ "/" + valid }>
-                    <div className="button">Login</div>
+                    <button className="button" type="submit" onClick={ () => wrongPass(valid) }>Login</button>
                 </NavLink>
             </form>
         </div>
