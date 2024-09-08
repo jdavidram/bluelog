@@ -61,22 +61,19 @@ div#login {
                 }
             }
         }
-        a {
-            text-decoration: none;
-            button.button {
-                margin: 10px;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 10px;
-                font-size: 15px;
-                cursor: pointer;
-                color: $white;
-                background-color: $black;
-                transition: 0.5s all ease;
-                &:hover {
-                    color: $black;
-                    background-color: $main;
-                }
+        button.button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
+            color: $white;
+            background-color: $black;
+            transition: 0.5s all ease;
+            &:hover {
+                color: $black;
+                background-color: $main;
             }
         }
     }
