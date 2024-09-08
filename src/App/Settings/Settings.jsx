@@ -1,6 +1,7 @@
 import { FaBluetooth, FaDatabase, FaPeriscope } from "react-icons/fa";
 import { CiWavePulse1 } from "react-icons/ci";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import axios from 'axios';
 import "./Settings.scss";
 
@@ -41,6 +42,7 @@ function Settings({ sensor, setSensor }) {
 
         setSensor(sensor);
     };
+    const [muestreo, setMuestreo] = useState(sensor.muestreo);
 
     return (
         <section className="settings">
@@ -79,18 +81,12 @@ function Settings({ sensor, setSensor }) {
                         </li>
                     </ul>
                 </div>
-                {/* <div id="muestreo">
-                    <span style={{ display: 'flex', alignItems: 'center' }}>
-                        <FaDatabase style={{ fontSize: '24px' }} />
-                        <h4>Muestreo</h4>
-                    </span>
-                </div> */}
                 <label htmlFor="Muestreo">
                     <span style={{ display: 'flex', alignItems: 'center' }}>
                         <FaDatabase style={{ fontSize: '24px' }} />
-                        <h4>Muestreo</h4>
+                        <h4>Muestreo { muestreo }</h4>
                     </span>
-                    <input type="number" name="muestreo" id="muestreo" onChange={(e) => sensor.muestreo = e.target.value} />
+                    <input type="range" min="0" max="1" step="0.1" name="muestreo" id="muestreo" onChange={(e) => setMuestreo(e.target.value)} />
                 </label>
                 <div id="period">
                     <span style={{ display: 'flex', alignItems: 'center' }}>
