@@ -3,173 +3,103 @@
 section.settings {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    form {
+    margin: 5% 30% 30%; /* Margen de 5% para los lados izquierdo y derecho, y de 5% para la parte inferior */
+    button,
+    article {
         display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: center;
-        label {
-            padding: 10px;
+        flex-direction: column; /* Para que el texto esté siempre debajo del icono */
+        justify-content: center; /* Centra el contenido verticalmente */
+        align-items: center; /* Centra el contenido horizontalmente */
+        margin-bottom: 20px; /* Espacio entre los botones */
+        span {
             display: flex;
-            align-items: center;
-            button {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: 10px 20px;
-                padding: 10px;
-                border: none;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: 0.5s all ease;
-                &:hover {
-                    background-color: $grey;
-                }
-                svg {
-                    margin-right: 10px;
-                }
-                h4 {
-                    font-size: 1.2em;
-                    color: $main;
-                }
+            flex-direction: column; /* Para que el texto esté siempre debajo del icono */
+            align-items: center; /* Centra el contenido horizontalmente */
+            svg {
+                width: 50px;
+                height: 50px;
             }
-            span {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+            h4 {
                 padding: 10px;
-                svg {
-                    margin-right: 10px;
-                }
-                h4 {
-                    color: $main;
-                }
-            }
-            input {
-                width: calc(100%);
+                margin: 0; /* Elimina el margen predeterminado del h4 */
             }
         }
     }
-    a {
-        text-decoration: none;
-        button.start-button {
-            margin: 10px;
+
+    /* Estilos para el formulario de frecuencia y muestreo */
+    form {
+        display: flex;
+        flex-direction: column; /* Alinea los campos del formulario en columna */
+        align-items: center; /* Centra los campos horizontalmente */
+        width: 100%; /* Ajusta el ancho del formulario */
+        margin-top: 30px; /* Espacio entre el formulario y los elementos superiores */
+
+        label {
+            display: flex;
+            flex-direction: column; /* Alinea el label y el input en columna */
+            align-items: center; /* Centra el contenido del label horizontalmente */
+            margin-bottom: 20px; /* Espacio entre los labels */
+            width: 100%; /* Ancho del label */
+
+            h4 {
+                margin-bottom: 5px; /* Espacio entre el texto del label y el input */
+                color: $black; /* Color del texto del label */
+                font-size: 25px; /* Tamaño de fuente */
+            }
+
+            input {
+                width: 100%; /* Ancho completo del input */
+                padding: 8px; /* Espaciado interno del input */
+                border: 1px solid $black; /* Borde del input */
+                border-radius: 5px; /* Bordes redondeados */
+                font-size: 14px; /* Tamaño de fuente */
+                text-align: center; /* Centra el texto dentro del input */
+                margin-top: 5px; /* Espacio entre el label y el input */
+
+                &:focus {
+                    outline: none; /* Elimina el borde predeterminado en foco */
+                    border-color: $main; /* Color del borde en foco */
+                    box-shadow: 0 0 5px $main; /* Sombra en foco */
+                }
+            }
+        }
+
+        button[type="submit"] {
             padding: 10px 20px;
-            outline: none;
             border: none;
             border-radius: 10px;
-            box-shadow: 0 0 5px $black;
+            font-size: 15px;
             cursor: pointer;
+            color: $white;
+            background-color: $black;
+            transition: 0.5s all ease;
+
+            &:hover {
+                color: $black;
+                background-color: $main;
+            }
+        }
+    }
+
+    a {
+        text-decoration: none;
+        button {
+            display: flex;
+            flex-direction: center;
+            margin: 0px 0px 0px 45px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
+            color: $white;
+            background-color: $black;
             transition: 0.5s all ease;
             &:hover {
+                color: $black;
                 background-color: $main;
             }
         }
     }
 }
-
-// section.settings {
-//     display: flex;
-//     flex-direction: column;
-//     margin: 5% 30% 30%; /* Margen de 5% para los lados izquierdo y derecho, y de 5% para la parte inferior */
-//     button,
-//     article {
-//         display: flex;
-//         flex-direction: column; /* Para que el texto esté siempre debajo del icono */
-//         justify-content: center; /* Centra el contenido verticalmente */
-//         align-items: center; /* Centra el contenido horizontalmente */
-//         margin-bottom: 20px; /* Espacio entre los botones */
-//         span {
-//             display: flex;
-//             justify-content: center;
-//             align-items: center; /* Centra el contenido horizontalmente */
-//             svg {
-//                 width: 50px;
-//                 height: 50px;
-//             }
-//             h4 {
-//                 padding: 10px;
-//                 margin: 0; /* Elimina el margen predeterminado del h4 */
-//             }
-//         }
-//     }
-
-//     /* Estilos para el formulario de frecuencia y muestreo */
-//     form {
-//         display: flex;
-//         flex-direction: column; /* Alinea los campos del formulario en columna */
-//         align-items: center; /* Centra los campos horizontalmente */
-//         width: 100%; /* Ajusta el ancho del formulario */
-//         margin-top: 20px; /* Espacio entre el formulario y los elementos superiores */
-
-//         label {
-//             display: flex;
-//             flex-direction: column; /* Alinea el label y el input en columna */
-//             align-items: center; /* Centra el contenido del label horizontalmente */
-//             margin-bottom: 15px; /* Espacio entre los labels */
-//             width: 80%; /* Ancho del label */
-
-//             h4 {
-//                 margin-bottom: 5px; /* Espacio entre el texto del label y el input */
-//                 color: $black; /* Color del texto del label */
-//                 font-size: 14px; /* Tamaño de fuente */
-//             }
-
-//             input {
-//                 width: 100%; /* Ancho completo del input */
-//                 padding: 8px; /* Espaciado interno del input */
-//                 border: 1px solid $black; /* Borde del input */
-//                 border-radius: 5px; /* Bordes redondeados */
-//                 font-size: 14px; /* Tamaño de fuente */
-//                 text-align: center; /* Centra el texto dentro del input */
-//                 margin-top: 5px; /* Espacio entre el label y el input */
-
-//                 &:focus {
-//                     outline: none; /* Elimina el borde predeterminado en foco */
-//                     border-color: $main; /* Color del borde en foco */
-//                     box-shadow: 0 0 5px $main; /* Sombra en foco */
-//                 }
-//             }
-//         }
-
-//         button[type="submit"] {
-//             padding: 10px 20px;
-//             border: none;
-//             border-radius: 10px;
-//             font-size: 15px;
-//             cursor: pointer;
-//             color: $white;
-//             background-color: $black;
-//             transition: 0.5s all ease;
-
-//             &:hover {
-//                 color: $black;
-//                 background-color: $main;
-//             }
-//         }
-//     }
-
-//     a {
-//         text-decoration: none;
-//         button {
-//             display: flex;
-//             flex-direction: center;
-//             margin: 0px 0px 0px 45px;
-//             padding: 10px 20px;
-//             border: none;
-//             border-radius: 10px;
-//             font-size: 15px;
-//             cursor: pointer;
-//             color: $white;
-//             background-color: $black;
-//             transition: 0.5s all ease;
-//             &:hover {
-//                 color: $black;
-//                 background-color: $main;
-//             }
-//         }
-//     }
-// }
     

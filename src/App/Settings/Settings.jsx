@@ -34,28 +34,27 @@ function Settings({ sensor, setSensor }) {
             <form onSubmit={handleSubmit}>
                 <label htmlFor="bluetooth">
                     <button type="button" onClick={handleBluetoothClick}>
-                        <FaBluetooth />
-                        <h4>Bluetooth</h4>
+                        <FaBluetooth style={{ fontSize: '64px' }} />
                     </button>
                     <h4>{sensor.bluetooth}</h4>
                 </label>
                 <label htmlFor="Frecuency">
-                    <span>
-                        <CiWavePulse1 />
+                    <span style={{ display: 'flex', alignItems: 'center' }}>
+                        <CiWavePulse1 style={{ fontSize: '36px' }} />
                         <h4>Frecuencia</h4>
                     </span>
                     <input type="number" name="frecuency" id="frecuency" onChange={(e) => sensor.frecuency = e.target.value} min="1" max="5000" />
                 </label>
                 <label htmlFor="Muestreo">
-                    <span>
-                        <FaDatabase />
+                    <span style={{ display: 'flex', alignItems: 'center' }}>
+                        <FaDatabase style={{ fontSize: '24px' }} />
                         <h4>Muestreo</h4>
                     </span>
                     <input type="number" name="muestreo" id="muestreo" onChange={(e) => sensor.muestreo = e.target.value} />
                 </label>
                 <label htmlFor="Periodo">
-                    <span>
-                        <FaPeriscope />
+                    <span style={{ display: 'flex', alignItems: 'center' }}>
+                        <FaPeriscope style={{ fontSize: '24px' }} />
                         <h4>Periodo</h4>
                     </span>
                     <input type="number" name="periodo" id="periodo" onChange={(e) => sensor.periodo = e.target.value} />
