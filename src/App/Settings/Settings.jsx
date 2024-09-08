@@ -96,19 +96,19 @@ function Settings({ sensor, setSensor }) {
                     <ul>
                         <li>
                             <input type="radio" id="a" name="period" value="0.5" />
-                            <label for="a">0.5 hz</label>
+                            <label for="a">0.5 h</label>
                         </li>
                         <li>
                             <input type="radio" id="b" name="period" value="1" />
-                            <label for="b">1 hz</label>
+                            <label for="b">1 h</label>
                         </li>
                         <li>
                             <input type="radio" id="c" name="period" value="2" />
-                            <label for="c">2 hz</label>
+                            <label for="c">2 h</label>
                         </li>
                         <li>
                             <input type="radio" id="d" name="period" value="4" />
-                            <label for="b">4 hz</label>
+                            <label for="b">4 h</label>
                         </li>
                     </ul>
                 </div>
