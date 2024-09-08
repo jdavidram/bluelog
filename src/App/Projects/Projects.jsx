@@ -3,6 +3,7 @@ import "./Projects.scss";
 import { AddForm } from "./AddForm";
 import { useState } from "react";
 import { FaX } from "react-icons/fa6";
+import { log } from "@tensorflow/tfjs";
 
 function ProjectItem({ key, name, image, onDelete }) {
     return (
@@ -23,6 +24,7 @@ function Projects() {
     }]);
     const deleteFolder = (key) => {
         var newFolders = [...folders];
+        console.log(key);
         newFolders.splice(key, 1);
         console.log(newFolders);
         alert("Haz eliminado una carpeta");
@@ -38,7 +40,7 @@ function Projects() {
                     index={ folders.indexOf(i) }
                     name={ i.name }
                     image={ i.image }
-                    onDelete={() => deleteFolder()}
+                    onDelete={() => deleteFolder(folders.indexOf(i))}
                 />
             )) }
         </section>
