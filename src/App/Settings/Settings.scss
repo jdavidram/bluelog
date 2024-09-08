@@ -33,7 +33,15 @@ section.settings {
         align-items: center; /* Centra los campos horizontalmente */
         width: 100%; /* Ajusta el ancho del formulario */
         margin-top: 30px; /* Espacio entre el formulario y los elementos superiores */
-
+        div {
+            ul {
+                list-style-type: none;
+                display: flex;
+                li {
+                    margin: 10px;
+                }
+            }
+        }
         label {
             display: flex;
             flex-direction: column; /* Alinea el label y el input en columna */
