@@ -16,7 +16,7 @@ body {
     // max-width: 400px;
     box-shadow: 0 0 5px $black;
     div#animation {
-      height: calc(100vh);
+      min-height: calc(100vh);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -41,7 +41,7 @@ body {
       }
     }
     main#main {
-      height: calc(100vh);
+      min-height: calc(100vh);
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: 50px 1fr;
