@@ -26,12 +26,12 @@ function App() {
           <Login />
         } />
         <Route path="/projects" element={
-          <Layout title="projects">
+          <Layout title="proyectos">
             <Projects />
           </Layout>
         } />
         <Route path="/anal" element={
-          <Layout title="analysis">
+          <Layout title="analisis">
             <Analyst />
             </Layout>
         } />
@@ -51,7 +51,7 @@ function App() {
           </Layout>
         } />
         <Route path="/set" element={
-          <Layout title="settings">
+          <Layout title="configuracion">
             <Settings sensor={ sensor } setSensor={ setSensor } />
           </Layout>
         } />

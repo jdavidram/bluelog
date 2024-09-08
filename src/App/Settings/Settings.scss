@@ -35,11 +35,21 @@ section.settings {
         width: 100%; /* Ajusta el ancho del formulario */
         margin-top: 30px; /* Espacio entre el formulario y los elementos superiores */
         div {
+            span h4 {
+                padding: 0 10px;
+            }
             ul {
                 list-style-type: none;
                 display: flex;
                 li {
                     margin: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    input {
+                        margin: 10px 0;
+                    }
                 }
             }
         }
@@ -52,9 +62,13 @@ section.settings {
             &#muestra {
                 margin: 20px 0;
             }
+            &#bluetooth button {
+                outline: none;
+            }
 
             h4 {
                 margin-bottom: 5px; /* Espacio entre el texto del label y el input */
+                padding: 0 10px;
                 color: $black; /* Color del texto del label */
                 font-size: 25px; /* Tamaño de fuente */
             }
@@ -62,21 +76,23 @@ section.settings {
             input {
                 width: 100%; /* Ancho completo del input */
                 padding: 8px; /* Espaciado interno del input */
-                border: 1px solid $black; /* Borde del input */
+                //border: 1px solid $black; /* Borde del input */
+                outline: none;
                 border-radius: 5px; /* Bordes redondeados */
                 font-size: 14px; /* Tamaño de fuente */
                 text-align: center; /* Centra el texto dentro del input */
                 margin-top: 5px; /* Espacio entre el label y el input */
 
                 &:focus {
-                    outline: none; /* Elimina el borde predeterminado en foco */
-                    border-color: $main; /* Color del borde en foco */
+                    //outline: none; /* Elimina el borde predeterminado en foco */
+                    //border-color: $main; /* Color del borde en foco */
                     box-shadow: 0 0 5px $main; /* Sombra en foco */
                 }
             }
         }
 
         button[type="submit"] {
+            margin: 20px 0;
             padding: 10px 20px;
             border: none;
             border-radius: 10px;

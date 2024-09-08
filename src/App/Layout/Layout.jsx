@@ -25,9 +25,9 @@ function Header({ title }) {
     const navigate = useNavigate();
 
     const reactIcons = {
-        "projects": <FaPlus id="plus" onClick={() => showForm(add, setAdd)} />,
-        "analysis": <FaChartLine />,
-        "settings": <IoMdSettings onClick={() => navigate('/set')} />
+        "proyectos": <FaPlus id="plus" onClick={() => showForm(add, setAdd)} />,
+        "analisis": <FaChartLine />,
+        "configuracion": <IoMdSettings onClick={() => navigate('/set')} />
     };
 
     const currentIcon = location.pathname === '/anal' ? reactIcons['settings'] : reactIcons[title];

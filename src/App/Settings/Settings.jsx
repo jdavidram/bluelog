@@ -1,5 +1,7 @@
 import { FaBluetooth, FaDatabase, FaPeriscope } from "react-icons/fa";
 import { CiWavePulse1 } from "react-icons/ci";
+import { FaCreativeCommonsSampling } from "react-icons/fa";
+import { RxLapTimer } from "react-icons/rx";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from 'axios';
@@ -47,9 +49,9 @@ function Settings({ sensor, setSensor }) {
     return (
         <section className="settings">
             <form onSubmit={handleSubmit}>
-                <label htmlFor="bluetooth">
+                <label htmlFor="bluetooth" id="bluetooth">
                     <button type="button">
-                        <FaBluetooth id="bluetooth" style={{ fontSize: '64px' }} />
+                        <FaBluetooth style={{ fontSize: '64px' }} />
                     </button>
                     <h4>{sensor.bluetooth}</h4>
                 </label>
@@ -83,14 +85,14 @@ function Settings({ sensor, setSensor }) {
                 </div>
                 <label htmlFor="Muestreo" id="muestra">
                     <span style={{ display: 'flex', alignItems: 'center' }}>
-                        <FaDatabase style={{ fontSize: '24px' }} />
+                        <FaCreativeCommonsSampling style={{ fontSize: '24px' }} />
                         <h4>Muestreo: { muestreo }</h4>
                     </span>
                     <input type="range" min="0" max="1" step="0.1" name="muestreo" id="muestreo" onChange={(e) => setMuestreo(e.target.value)} />
                 </label>
                 <div id="period">
                     <span style={{ display: 'flex', alignItems: 'center' }}>
-                        <FaPeriscope style={{ fontSize: '24px' }} />
+                        <RxLapTimer style={{ fontSize: '24px' }} />
                         <h4>Periodo</h4>
                     </span>
                     <ul>
