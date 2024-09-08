@@ -49,6 +49,9 @@ section.settings {
             align-items: center; /* Centra el contenido del label horizontalmente */
             margin-bottom: 20px; /* Espacio entre los labels */
             width: 100%; /* Ancho del label */
+            &#muestra {
+                margin: 20px 0;
+            }
 
             h4 {
                 margin-bottom: 5px; /* Espacio entre el texto del label y el input */

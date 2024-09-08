@@ -48,7 +48,7 @@ function Settings({ sensor, setSensor }) {
         <section className="settings">
             <form onSubmit={handleSubmit}>
                 <label htmlFor="bluetooth">
-                    <button type="button" onClick={handleBluetoothClick}>
+                    <button type="button">
                         <FaBluetooth id="bluetooth" style={{ fontSize: '64px' }} />
                     </button>
                     <h4>{sensor.bluetooth}</h4>
@@ -81,10 +81,10 @@ function Settings({ sensor, setSensor }) {
                         </li>
                     </ul>
                 </div>
-                <label htmlFor="Muestreo">
+                <label htmlFor="Muestreo" id="muestra">
                     <span style={{ display: 'flex', alignItems: 'center' }}>
                         <FaDatabase style={{ fontSize: '24px' }} />
-                        <h4>Muestreo { muestreo }</h4>
+                        <h4>Muestreo: { muestreo }</h4>
                     </span>
                     <input type="range" min="0" max="1" step="0.1" name="muestreo" id="muestreo" onChange={(e) => setMuestreo(e.target.value)} />
                 </label>
