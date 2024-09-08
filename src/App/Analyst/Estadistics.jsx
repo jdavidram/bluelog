@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './Estadistics.scss';
 
 function Estadistics() {
@@ -6,21 +7,12 @@ function Estadistics() {
 
     const handleActionClick = async () => {
         try {
-            const response = await fetch('http://localhost:5000/do-something-with-csv', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({}),
-            });
+            // Enviar una solicitud POST al endpoint Flask usando Axios
+            const response = await axios.post('http://localhost:5000/estadistics', {});
 
-            if (response.ok) {
-                const statisticsData = await response.json();
-                setStatistics(statisticsData);
-                alert('Acción completada con éxito');
-            } else {
-                alert('Error al realizar la acción');
-            }
+            // La respuesta JSON está en response.data
+            setStatistics(response.data);
+            alert('Estadísticas generadas con éxito');
         } catch (error) {
             console.error('Error:', error);
             alert('Error al comunicarse con el servidor');
@@ -58,7 +50,7 @@ function Estadistics() {
     return (
         <div>
             <button className="action-button" onClick={handleActionClick}>
-                Calcular los estadisticos
+                Calcular las estadísticas
             </button>
             {statistics && (
                 <>
