@@ -31,7 +31,7 @@ function App() {
           </Layout>
         } />
         <Route path="/anal" element={
-          <Layout title="analisis">
+          <Layout title="análisis">
             <Analyst />
             </Layout>
         } />
@@ -46,12 +46,12 @@ function App() {
           </Layout>
         } />
         <Route path="/config" element={
-          <Layout title="Configuracion">
+          <Layout title="Configuración">
             <Settings />
           </Layout>
         } />
         <Route path="/set" element={
-          <Layout title="configuracion">
+          <Layout title="configuración">
             <Settings sensor={ sensor } setSensor={ setSensor } />
           </Layout>
         } />

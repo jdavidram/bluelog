@@ -34,7 +34,7 @@ function Login() {
                         type="text" 
                         name="username" 
                         id="username" 
-                        placeholder="username" 
+                        placeholder="Usuario" 
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                     />
@@ -44,12 +44,12 @@ function Login() {
                         type="password" 
                         name="password" 
                         id="password" 
-                        placeholder="password" 
+                        placeholder="Contraseña" 
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </label>
-                <button className="button" type="submit">Login</button>
+                <button className="button" type="submit">Iniciar Sesión</button>
                 {/* {error && <p>{error}</p>} */}
             </form>
         </div>

@@ -58,43 +58,47 @@ function Settings({ sensor, setSensor }) {
                 <div id="frecuency">
                     <span style={{ display: 'flex', alignItems: 'center' }}>
                         <CiWavePulse1 style={{ fontSize: '36px' }} />
-                        <h4>Frecuencia</h4>
+                        <h3>Frecuencia</h3>
                     </span>
+                </div>
+                <div id="frecuency">
                     <ul>
                         <li>
                             <input type="radio" id="a" name="frecuency" value="0.5" />
-                            <label for="a">0.5 hz</label>
+                            <label for="a">0.5 Hz</label>
                         </li>
                         <li>
                             <input type="radio" id="b" name="frecuency" value="1" />
-                            <label for="b">1 hz</label>
+                            <label for="b">1.0 Hz</label>
                         </li>
                         <li>
                             <input type="radio" id="c" name="frecuency" value="2" />
-                            <label for="c">2 hz</label>
+                            <label for="c">2.0 Hz</label>
                         </li>
                         <li>
                             <input type="radio" id="d" name="frecuency" value="3" />
-                            <label for="b">3 hz</label>
+                            <label for="b">3.0 Hz</label>
                         </li>
                         <li>
                             <input type="radio" id="e" name="frecuency" value="5" />
-                            <label for="c">5 hz</label>
+                            <label for="c">5.0 Hz</label>
                         </li>
                     </ul>
                 </div>
                 <label htmlFor="Muestreo" id="muestra">
                     <span style={{ display: 'flex', alignItems: 'center' }}>
                         <FaCreativeCommonsSampling style={{ fontSize: '24px' }} />
-                        <h4>Muestreo: { muestreo }</h4>
+                        <h3>Muestreo: { muestreo }</h3>
                     </span>
                     <input type="range" min="0" max="1" step="0.1" name="muestreo" id="muestreo" onChange={(e) => setMuestreo(e.target.value)} />
                 </label>
                 <div id="period">
                     <span style={{ display: 'flex', alignItems: 'center' }}>
                         <RxLapTimer style={{ fontSize: '24px' }} />
-                        <h4>Periodo</h4>
+                        <h3>Periodo</h3>
                     </span>
+                </div>
+                <div id="period">
                     <ul>
                         <li>
                             <input type="radio" id="a" name="period" value="0.5" />
@@ -102,15 +106,15 @@ function Settings({ sensor, setSensor }) {
                         </li>
                         <li>
                             <input type="radio" id="b" name="period" value="1" />
-                            <label for="b">1 h</label>
+                            <label for="b">1.0 h</label>
                         </li>
                         <li>
                             <input type="radio" id="c" name="period" value="2" />
-                            <label for="c">2 h</label>
+                            <label for="c">2.0 h</label>
                         </li>
                         <li>
                             <input type="radio" id="d" name="period" value="4" />
-                            <label for="b">4 h</label>
+                            <label for="b">4.0 h</label>
                         </li>
                     </ul>
                 </div>
