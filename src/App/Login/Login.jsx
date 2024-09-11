@@ -32,32 +32,34 @@ function Login() {
     };
 
     return (
-        <div id="login">
-            <Logo />
-            <form onSubmit={handleLogin}>
-                <label htmlFor="username">
-                    <input 
-                        type="text" 
-                        name="username" 
-                        id="username" 
-                        placeholder="Usuario" 
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
-                </label>
-                <label htmlFor="password">
-                    <input 
-                        type="password" 
-                        name="password" 
-                        id="password" 
-                        placeholder="Contraseña" 
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </label>
-                <button className="button" type="submit">Iniciar Sesión</button>
-                {error && <p>{error}</p>} {/* Puedes descomentar esto para mostrar el error */}
-            </form>
+    <div id="container">    
+            <div id="login">
+                <Logo />
+                <form onSubmit={handleLogin}>
+                    <label htmlFor="username">
+                        <input 
+                            type="text" 
+                            name="username" 
+                            id="username" 
+                            placeholder="Usuario" 
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
+                    </label>
+                    <label htmlFor="password">
+                        <input 
+                            type="password" 
+                            name="password" 
+                            id="password" 
+                            placeholder="Contraseña" 
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </label>
+                    <button className="button" type="submit">Iniciar Sesión</button>
+                    {error && <p>{error}</p>} {/* Puedes descomentar esto para mostrar el error */}
+                </form>
+            </div>
         </div>
     );
 }
