@@ -3,14 +3,13 @@
 section.settings {
     display: flex;
     flex-direction: column;
-    margin: 5% 30% 30%; /* Margen de 5% para los lados izquierdo y derecho, y de 5% para la parte inferior */
+    margin: 0% 30% 0%; /* Margen de 5% para los lados izquierdo y derecho, y de 5% para la parte inferior */
     button,
     article {
         display: flex;
         flex-direction: column; /* Para que el texto esté siempre debajo del icono */
         justify-content: center; /* Centra el contenido verticalmente */
         align-items: center; /* Centra el contenido horizontalmente */
-        margin-bottom: 20px; /* Espacio entre los botones */
         span {
             display: flex;
             flex-direction: column; /* Para que el texto esté siempre debajo del icono */

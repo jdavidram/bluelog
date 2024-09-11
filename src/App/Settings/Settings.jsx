@@ -50,9 +50,7 @@ function Settings({ sensor, setSensor }) {
         <section className="settings">
             <form onSubmit={handleSubmit}>
                 <label htmlFor="bluetooth" id="bluetooth">
-                    <button type="button">
-                        <FaBluetooth style={{ fontSize: '64px' }} />
-                    </button>
+                        <FaBluetooth style={{ fontSize: '72px' }} />
                     <h4>{sensor.bluetooth}</h4>
                 </label>
                 <div id="frecuency">
