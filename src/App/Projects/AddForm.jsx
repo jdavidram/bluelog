@@ -15,24 +15,35 @@ function AddForm({ folders, setFolders }) {
     };
 
     const addFolder = () => {
-        // Validar que ambos campos no estén vacíos
+        let img = document.getElementById("image").value.replaceAll("\\", "/");
+
+        // Validar que el nombre del proyecto no esté vacío
         if (!name.trim()) {
             setError("El nombre del proyecto es obligatorio.");
             return;
         }
 
-        let img = document.getElementById("image").value.replaceAll("\\", "/");
+        // Validar que se haya subido una imagen
+        if (img === "" || img === "Imagen de la carpeta") {
+            setError("Debe seleccionar una imagen.");
+            return;
+        }
+
+        // Si no se ha subido una imagen válida, se asigna una imagen por defecto
         if (img === "") {
             img = "https://estaticos.elcolombiano.com/binrepository/893x565/57c0/780d565/none/11101/XKEB/documentation-fotos-1-13717159-6ed56232effbbe3127a19d67b2f920b4_43070691_20230817105411.jpg";
         }
 
+        // Añadir la carpeta
         setFolders([...folders, {
             "name": name,
             "image": img
         }]);
-        setName(""); // Limpiar el campo de nombre
-        setImage("Imagen de la carpeta"); // Restablecer la imagen
-        setError(""); // Limpiar el mensaje de error
+
+        // Limpiar los campos
+        setName("");
+        setImage("Imagen de la carpeta");
+        setError("");
         console.log(folders);
     };
 
