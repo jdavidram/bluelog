@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ReactComponent as Logo } from "../logo.svg";
 import axios from 'axios';
 import "./Login.scss";
+import { UserContext } from "../Context/UserContext";
 
 function Login() {
     const [username, setUsername] = useState("");
@@ -10,13 +11,18 @@ function Login() {
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
+    // Obtén la función setUser del contexto
+    const { setUser } = useContext(UserContext);
+
     const handleLogin = async (event) => {
         event.preventDefault();
         try {
             const response = await axios.post('http://localhost:5000/login', { username, password });
             if (response.data.status === "success") {
-                navigate("/projects");// Redirige al usuario a la página de proyectos
-                //setMessage('Login exitoso')  
+                // Actualiza el contexto del usuario aquí
+                setUser({ id: response.data.user_id }); 
+
+                navigate("/projects"); 
             } else {
                 setError("Usuario o contraseña incorrectos");
             }
@@ -50,7 +56,7 @@ function Login() {
                     />
                 </label>
                 <button className="button" type="submit">Iniciar Sesión</button>
-                {/* {error && <p>{error}</p>} */}
+                {error && <p>{error}</p>} {/* Puedes descomentar esto para mostrar el error */}
             </form>
         </div>
     );
