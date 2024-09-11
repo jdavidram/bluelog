@@ -44,7 +44,7 @@ function Projects() {
   const deleteFolder = (key) => {
     var newFolders = [...folders];
     newFolders.splice(key, 1);
-    alert("Folder deleted"); 
+    alert("Carpeta Eliminada."); 
     setFolders(newFolders);
   };
 

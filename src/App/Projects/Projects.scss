@@ -3,7 +3,7 @@
 form#addForm {
     width: calc(100vw);
     max-width: 400px;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 80px);
     background-color: $grey;
     border-radius: 20px;
     position: fixed;
@@ -16,7 +16,7 @@ form#addForm {
     transition: 0.5s all ease;
     h4 {
         padding: 10px;
-        color: $black;
+        color: $white;
         strong {
             color: $main;
         }
@@ -27,7 +27,7 @@ form#addForm {
         justify-content: space-between;
         align-items: center;
         input[type="text"] {
-            padding: 10px;
+            padding: 13px;
             border-top: none;
             border-right: 5px solid $white;
             border-bottom: none;
@@ -61,7 +61,7 @@ form#addForm {
             border-radius: 10px;
             font-size: 15px;
             cursor: pointer;
-            color: $white;
+            color: $main;
             background-color: $black;
             transition: 0.5s all ease;
             &:hover {
@@ -73,7 +73,7 @@ form#addForm {
 }
 
 section.projects {
-    padding: 5px;
+    padding: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -81,7 +81,7 @@ section.projects {
     div.project {
         width: calc(100% / 3);
         margin: 5px;
-        padding: 10px;
+        padding: 15px;
         background-color: $grey;
         display: flex;
         justify-content: flex-end;
