@@ -27,14 +27,13 @@ function App() {
         <Animation />
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route element={<ProtectedRoute />}> {/* Envuelve las rutas protegidas */}
+          {/* <Route element={<ProtectedRoute />}> Envuelve las rutas protegidas */}
             <Route path="/projects" element={ 
               <Layout title="proyectos">
                 <Projects />
               </Layout>
             } />
-            {/* ... otras rutas que también quieras proteger */}
-          </Route>
+          {/* </Route> ... otras rutas que también quieras proteger */}
           <Route path="/anal" element={
             <Layout title="análisis">
               <Analyst />

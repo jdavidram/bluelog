@@ -62,11 +62,13 @@ function AddForm({ folders, setFolders }) {
             </span>
             <span>
                 <input
-                    type="file"
+                    type="text"
                     id="image"
+                    placeholder={ image }
+                    value={ image }
                     onChange={(e) => formChangeImage(e)}
+
                 />
-                <label htmlFor="image">{ image }</label>
             </span>
             <span>
                 <div className="button" onClick={() => addFolder()} >Añadir</div>
