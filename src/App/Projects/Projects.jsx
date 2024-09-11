@@ -6,17 +6,20 @@ import { FaX } from "react-icons/fa6";
 import axios from "axios";
 import { UserContext } from "../Context/UserContext";
 
-function ProjectItem({ key, name, image, onDelete }) {
-  return (
-    <div className="project">
-      <img src={image} alt={name} />
-      <span>
-        <NavLink to={"/anal"}>{name}</NavLink> 
-        <FaX onClick={() => onDelete(key)} />
-      </span>
-    </div>
-  );
-}
+// Importa la imagen por defecto (ruta relativa desde Projects.jsx)
+import defaultImage from './imagenes/paisaje.jpg'; 
+
+function ProjectItem({ key, name, onDelete }) { // No necesitas la prop 'image'
+    return (
+      <div className="project">
+        <img src={defaultImage} alt={name} /> 
+        <span>
+          <NavLink to={"/anal"}>{name}</NavLink>
+          <FaX onClick={() => onDelete(key)} /> 
+        </span>
+      </div>
+    );
+  }
 
 function Projects() {
   const { user } = useContext(UserContext); 
@@ -44,7 +47,7 @@ function Projects() {
   const deleteFolder = (key) => {
     var newFolders = [...folders];
     newFolders.splice(key, 1);
-    alert("Carpeta Eliminada."); 
+    alert("Carpeta eliminada"); 
     setFolders(newFolders);
   };
 
@@ -60,7 +63,7 @@ function Projects() {
         <section className="projects">
           {folders.map((i, index) => (
             <ProjectItem
-              key={index}
+              key={index}        
               name={i.name}
               image={i.image_path} 
               onDelete={() => deleteFolder(index)}
