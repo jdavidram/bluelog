@@ -5,7 +5,6 @@ import { useState, useEffect, useContext } from "react";
 import { FaX } from "react-icons/fa6";
 import axios from "axios";
 import { UserContext } from "../Context/UserContext";
-
 // Importa la imagen por defecto (ruta relativa desde Projects.jsx)
 import defaultImage from './imagenes/paisaje.jpg'; 
 
@@ -20,6 +19,7 @@ function ProjectItem({ key, name, onDelete }) { // No necesitas la prop 'image'
       </div>
     );
   }
+  
 
 function Projects() {
   const { user } = useContext(UserContext); 
@@ -63,7 +63,7 @@ function Projects() {
         <section className="projects">
           {folders.map((i, index) => (
             <ProjectItem
-              key={index}        
+              key={index}
               name={i.name}
               image={i.image_path} 
               onDelete={() => deleteFolder(index)}
