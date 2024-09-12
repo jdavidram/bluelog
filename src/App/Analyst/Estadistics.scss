@@ -40,14 +40,13 @@
 
 div#juanda {
     max-width: calc(100vw);
-    overflow: scroll;
+    overflow-x: scroll;
 }
 
 .table {
-    width: 100%;
+    width: calc(100%);
     border-collapse: collapse;
     margin-top: 30px;
-
     th, td {
         min-width: fit-content;
         border: 1px solid #ddd;
@@ -58,19 +57,18 @@ div#juanda {
 
     th {
         background-color: #f2f2f2;
-        position: sticky;
+        position: relative;
         top: 0;
     }
 
     tbody {
         display: block;
-        max-height: 250px;
+        // max-height: 250px;
         overflow-y: auto;
     }
 
     tr {
         display: table;
-        width: 100%;
         table-layout: fixed;  // Asegura que las columnas mantengan un tamaño fijo
     }
 
