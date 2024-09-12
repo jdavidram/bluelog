@@ -1,21 +1,28 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import axios from 'axios';
+import { UserContext } from "../Context/UserContext";
 
 function AddForm({ folders, setFolders }) {
     const [image, setImage] = useState("Imagen de la carpeta");
     const [name, setName] = useState("");
     const [error, setError] = useState("");
 
+    const { user } = useContext(UserContext);
+
     const formChangeImage = (e) => {
-        let img = e.target.value.split("\\");
-        setImage(img[img.length - 1]);
+        const file = e.target.files[0];
+        if (file) {
+            setImage(file.name);
+        }
     };
 
     const handleNameChange = (e) => {
         setName(e.target.value);
     };
 
-    const addFolder = () => {
-        let img = document.getElementById("image").value.replaceAll("\\", "/");
+    const addFolder = async () => {
+        const fileInput = document.getElementById("image");
+        const file = fileInput.files[0];
 
         // Validar que el nombre del proyecto no esté vacío
         if (!name.trim()) {
@@ -24,27 +31,38 @@ function AddForm({ folders, setFolders }) {
         }
 
         // Validar que se haya subido una imagen
-        if (img === "" || img === "Imagen de la carpeta") {
+        if (!file) {
             setError("Debe seleccionar una imagen.");
             return;
         }
 
-        // Si no se ha subido una imagen válida, se asigna una imagen por defecto
-        if (img === "") {
-            img = "https://estaticos.elcolombiano.com/binrepository/893x565/57c0/780d565/none/11101/XKEB/documentation-fotos-1-13717159-6ed56232effbbe3127a19d67b2f920b4_43070691_20230817105411.jpg";
+        try {
+            const formData = new FormData();
+
+            formData.append('name', name);
+            formData.append('user_id', user.id);
+            formData.append('csv_data', '{}'); 
+
+            const response = await axios.post('http://localhost:5000/folders', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data' 
+                }
+            });
+
+            if (response.status === 201) { 
+                setFolders([...folders, response.data]); 
+
+                setName("");
+                setImage("Imagen de la carpeta");
+                setError("");
+                fileInput.value = ''; 
+            } else {
+                setError("Error al crear la carpeta en el servidor.");
+            }
+        } catch (error) {
+            console.error("Error al crear la carpeta:", error);
+            setError("Error al comunicarse con el servidor.");
         }
-
-        // Añadir la carpeta
-        setFolders([...folders, {
-            "name": name,
-            "image": img
-        }]);
-
-        // Limpiar los campos
-        setName("");
-        setImage("Imagen de la carpeta");
-        setError("");
-        console.log(folders);
     };
 
     return (
@@ -65,13 +83,13 @@ function AddForm({ folders, setFolders }) {
                 <input
                     type="file"
                     id="image"
-                    onChange={(e) => formChangeImage(e)}
+                    onChange={formChangeImage}
                     required
                 />
                 <label htmlFor="image">{ image }</label>
             </span>
             <span>
-                <div className="button" onClick={() => addFolder()} >Añadir</div>
+                <div className="button" onClick={addFolder} >Añadir</div>
             </span>
         </form>
     );
