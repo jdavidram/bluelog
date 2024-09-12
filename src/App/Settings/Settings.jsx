@@ -57,7 +57,7 @@ function Settings({ sensor, setSensor }) {
     return (
         <section className="settings">
             <form onSubmit={handleSubmit}>
-                <label htmlFor="bluetooth" id="bluetooth" onClick={handleBluetoothClick}>
+                <label htmlFor="bluetooth" id="bluetooth">
                     <FaBluetooth style={{ fontSize: '72px' }} />
                     <h4>{sensor.bluetooth}</h4>
                 </label>
