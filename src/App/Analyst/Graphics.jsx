@@ -12,17 +12,14 @@ const Graphics = () => {
       const response = await fetch('./example.csv');
       const text = await response.text();
       const data = text.split('\n').map(row => row.split(','));
-
       const labels = [];
       const values = [];
-
       data.forEach((row, index) => {
         if (index > 0) {
-          labels.push(row[0]);
+          labels.push(row[1]);
           values.push(parseFloat(row[2]));
         }
       });
-
       setChartData({
         labels: labels,
         datasets: [
@@ -35,7 +32,6 @@ const Graphics = () => {
         ],
       });
     };
-
     loadCSV();
   }, []);
 
@@ -50,12 +46,20 @@ const Graphics = () => {
               maintainAspectRatio: false,
               scales: {
                 x: {
+                  title: {
+                    display: true,
+                    text: 'Tiempo horario [h]',
+                  },
                   ticks: {
                     autoSkip: true,
                     maxTicksLimit: 20,
                   },
                 },
                 y: {
+                  title: {
+                    display: true,
+                    text: 'Profundidad [m]',
+                  },
                   ticks: {
                     autoSkip: true,
                     maxTicksLimit: 10,

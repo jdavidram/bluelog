@@ -58,6 +58,7 @@ function AddForm({ folders, setFolders }) {
                     placeholder="NOMBRE_PROYECTO"
                     value={name}
                     onChange={handleNameChange}
+                    required
                 />
             </span>
             <span>
@@ -65,6 +66,7 @@ function AddForm({ folders, setFolders }) {
                     type="file"
                     id="image"
                     onChange={(e) => formChangeImage(e)}
+                    required
                 />
                 <label htmlFor="image">{ image }</label>
             </span>

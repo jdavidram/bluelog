@@ -34,7 +34,7 @@ function App() {
               </Layout>
             } />
             {/* ... otras rutas que también quieras proteger */}
-          </Route>
+            </Route>
           <Route path="/anal" element={
             <Layout title="análisis">
               <Analyst />
