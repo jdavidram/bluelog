@@ -20,6 +20,11 @@
     }
 }
 
+div#juanda {
+    max-width: calc(100vw);
+    overflow: scroll;
+}
+
 .table {
     width: 100%;
     border-collapse: collapse;

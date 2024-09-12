@@ -48,7 +48,7 @@ function Estadistics() {
     };
 
     return (
-        <div>
+        <div id='juanda'>
             <button className="action-button" onClick={handleActionClick}>
                 Calcular las estadísticas
             </button>
