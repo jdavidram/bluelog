@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import CSVReader from 'react-csv-reader';
+import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend } from 'chart.js';
 
@@ -8,35 +7,41 @@ ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Title, T
 const Graphics = () => {
   const [chartData, setChartData] = useState(null);
 
-  const handleFileLoaded = (data) => {
-    const labels = [];
-    const values = [];
+  useEffect(() => {
+    const loadCSV = async () => {
+      const response = await fetch('./data.csv');
+      const text = await response.text();
+      const data = text.split('\n').map(row => row.split(','));
 
-    data.forEach((row, index) => {
-      if (index > 0) {
-        labels.push(row[0]);
-        values.push(parseFloat(row[1]));
-      }
-    });
+      const labels = [];
+      const values = [];
 
-    setChartData({
-      labels: labels,
-      datasets: [
-        {
-          label: 'Profundidad en el tiempo',
-          data: values,
-          borderColor: 'rgba(75, 192, 192, 1)',
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        },
-      ],
-    });
-  };
+      data.forEach((row, index) => {
+        if (index > 0) {
+          labels.push(row[0]);
+          values.push(parseFloat(row[1]));
+        }
+      });
+
+      setChartData({
+        labels: labels,
+        datasets: [
+          {
+            label: 'Profundidad en el tiempo',
+            data: values,
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          },
+        ],
+      });
+    };
+
+    loadCSV();
+  }, []);
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', margin: 0 }}>
       <div style={{ width: '80%', maxWidth: '800px', height: '80%' }}>
-        <CSVReader onFileLoaded={handleFileLoaded} />
-
         {chartData && (
           <Line
             data={chartData}
