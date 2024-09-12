@@ -31,6 +31,7 @@ div#juanda {
     margin-top: 30px;
 
     th, td {
+        min-width: fit-content;
         border: 1px solid #ddd;
         padding: 8px;
         text-align: left;
