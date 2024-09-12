@@ -64,7 +64,7 @@ function Settings({ sensor, setSensor }) {
                 <div id="frecuency">
                     <span style={{ display: 'flex', alignItems: 'center' }}>
                         <CiWavePulse1 style={{ fontSize: '36px' }} />
-                        <h3>Frecuencia</h3>
+                        <h4>Frecuencia</h4>
                     </span>
                     <ul>
                         <li>
@@ -101,7 +101,7 @@ function Settings({ sensor, setSensor }) {
                 <div id="period">
                     <span style={{ display: 'flex', alignItems: 'center' }}>
                         <RxLapTimer style={{ fontSize: '24px' }} />
-                        <h3>Periodo</h3>
+                        <h4>Periodo</h4>
                     </span>
                     <ul>
                         <li>

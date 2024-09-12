@@ -34,8 +34,13 @@ section.settings {
         width: 100%; /* Ajusta el ancho del formulario */
         margin-top: 30px; /* Espacio entre el formulario y los elementos superiores */
         div {
-            span h4 {
-                padding: 0 10px;
+            span {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                h4 {
+                    padding: 0 10px;
+                }
             }
             ul {
                 list-style-type: none;
