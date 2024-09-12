@@ -34,13 +34,18 @@ function Settings({ sensor, setSensor }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        const formData = {
+            frecuency: frecuency,
+            muestreo: muestreo,
+            periodo: periodo
+        };
+
+        // Mostrar los datos enviados por consola y en un alert
+        console.log("Datos enviados:", formData);
+        alert(`Datos enviados:\n${JSON.stringify(formData, null, 2)}`);
+
         try {
-            // Enviar los datos del formulario al backend con axios
-            const response = await axios.post('http://localhost:5000/submit-form', {
-                frecuency: frecuency,
-                muestreo: muestreo,
-                periodo: periodo
-            });
+            const response = await axios.post('http://localhost:5000/submit-form', formData);
             console.log(response.data);  // Puedes manejar la respuesta del backend aquí
         } catch (error) {
             console.error('Error al enviar los datos', error);
