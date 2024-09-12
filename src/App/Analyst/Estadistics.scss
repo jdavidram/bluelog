@@ -13,6 +13,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
+    &:hover {
+        background-color: $black;
+    }
+}
+
+.action-buttonon {
+    background-color: $main;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 20px;
     &:hover {
         background-color: $black;
