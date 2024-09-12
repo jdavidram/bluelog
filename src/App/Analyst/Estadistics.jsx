@@ -27,7 +27,7 @@ function Estadistics() {
             <table className="table">
                 <thead>
                     <tr>
-                        <th>Statistic</th>
+                        <th>Estadísticas</th>
                         {columns.map((column, index) => (
                             <th key={index}>{column}</th>
                         ))}

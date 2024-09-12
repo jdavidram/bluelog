@@ -9,7 +9,7 @@ const Graphics = () => {
 
   useEffect(() => {
     const loadCSV = async () => {
-      const response = await fetch('./data.csv');
+      const response = await fetch('./example.csv');
       const text = await response.text();
       const data = text.split('\n').map(row => row.split(','));
 
@@ -19,7 +19,7 @@ const Graphics = () => {
       data.forEach((row, index) => {
         if (index > 0) {
           labels.push(row[0]);
-          values.push(parseFloat(row[1]));
+          values.push(parseFloat(row[2]));
         }
       });
 
