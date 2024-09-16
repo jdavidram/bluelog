@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import './Estadistics.scss';
 
 function Estadistics() {
     const [statistics, setStatistics] = useState(null);
+    const { folderId } = useParams();  // Obtener el folderId desde la URL
 
     const handleActionClick = async () => {
         try {
-            // Enviar una solicitud POST al endpoint Flask usando Axios
-            const response = await axios.post('http://localhost:5000/estadistics', {});
+            // Hacer una solicitud POST con el folderId
+            const response = await axios.post(`http://localhost:5000/estadistics/${folderId}`);
 
             // La respuesta JSON está en response.data
             setStatistics(response.data);

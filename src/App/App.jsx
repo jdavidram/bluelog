@@ -35,17 +35,18 @@ function App() {
             } />
             {/* ... otras rutas que también quieras proteger */}
             </Route>
-          <Route path="/anal" element={
-            <Layout title="análisis">
-              <Analyst />
-            </Layout>
-          } />
-          <Route path="/estadistics" element={
+            <Route path="/analyst/:folderId" element={
+              <Layout title="análisis">
+                <Analyst />
+              </Layout>
+            } />
+
+          <Route path="/estadistics/:folderId" element={
             <Layout title="Estadísticos">
               <Estadistics />
             </Layout>
           } />
-          <Route path="/graphics" element={
+          <Route path="/graphics/:folderId" element={
             <Layout title="Gráficos">
               <Graphics />
             </Layout>

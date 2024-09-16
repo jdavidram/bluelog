@@ -30,8 +30,8 @@ function Header({ title }) {
         "configuracion": <IoMdSettings onClick={() => navigate('/set')} />
     };
 
-    const currentIcon = location.pathname === '/anal' ? reactIcons['settings'] : reactIcons[title];
-    const routes = ["/anal", "/graphics", "/estadistics", "/set", "/set/bluetooth"];
+    const currentIcon = location.pathname === '/analyst/:folderId' ? reactIcons['settings'] : reactIcons[title];
+    const routes = ["/analyst/:folderId", "/graphics/:folderId", "/estadistics/:folderId", "/set", "/set/bluetooth"];
 
     return (
         <header>

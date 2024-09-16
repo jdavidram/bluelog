@@ -5,17 +5,15 @@ import { useState, useEffect, useContext } from "react";
 import { FaX } from "react-icons/fa6";
 import axios from "axios";
 import { UserContext } from "../Context/UserContext";
-
-// Importa la imagen por defecto (ruta relativa desde Projects.jsx)
 import defaultImage from './imagenes/paisaje.jpg';
 
-function ProjectItem({ key, name, onDelete }) {
+function ProjectItem({ id, name, onDelete }) {
   return (
     <div className="project">
       <img src={defaultImage} alt={name} /> 
       <span>
-        <NavLink to={"/anal"}>{name}</NavLink>
-        <FaX onClick={() => onDelete(key)} /> 
+        <NavLink to={`/analyst/${id}`}>{name}</NavLink>
+        <FaX onClick={() => onDelete(id)} /> 
       </span>
     </div>
   );
@@ -44,16 +42,12 @@ function Projects() {
     }
   }, [user]);
 
-  const deleteFolder = async (key) => {
+  const deleteFolder = async (id) => {
     try {
-      const folderId = folders[key].id; 
-
-      const response = await axios.delete(`http://localhost:5000/folders/${folderId}`);
+      const response = await axios.delete(`http://localhost:5000/folders/${id}`);
 
       if (response.status === 204) { 
-        var newFolders = [...folders];
-        newFolders.splice(key, 1);
-        setFolders(newFolders);
+        setFolders(folders.filter(folder => folder.id !== id));
       } else {
         setError("Error al eliminar la carpeta en el servidor.");
       }
@@ -73,11 +67,12 @@ function Projects() {
       )}
       {!isLoading && folders.length > 0 && (
         <section className="projects">
-          {folders.map((i, index) => (
+          {folders.map((folder) => (
             <ProjectItem
-              key={index}
-              name={i.name}
-              onDelete={() => deleteFolder(index)} 
+              key={folder.id}
+              id={folder.id}  // Pasar el ID de la carpeta
+              name={folder.name}
+              onDelete={() => deleteFolder(folder.id)} 
             />
           ))}
         </section>
