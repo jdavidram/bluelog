@@ -30,18 +30,19 @@ function Header({ title }) {
         "configuracion": <IoMdSettings onClick={() => navigate('/set')} />
     };
 
-    const currentIcon = location.pathname === '/analyst/:folderId' ? reactIcons['settings'] : reactIcons[title];
-    const routes = ["/analyst/:folderId", "/graphics/:folderId", "/estadistics/:folderId", "/set", "/set/bluetooth"];
+    // Determina si mostrar el ícono de retroceder o el ícono correspondiente a la vista actual
+    const showBackButton = location.pathname.startsWith('/analyst/') || 
+                          location.pathname.startsWith('/graphics/') || 
+                          location.pathname.startsWith('/estadistics/') ||
+                          location.pathname === '/set'; // Incluye la ruta '/set'
+
+    const currentIcon = showBackButton ? <IoMdArrowBack onClick={() => navigate(-1)} /> : reactIcons[title];
 
     return (
         <header>
             <Logo />
             <h2>{ title }</h2>
-            { (routes.indexOf(location.pathname) >= 0) ? (
-                <IoMdArrowBack onClick={() => navigate(-1)} />
-            ) : (
-                currentIcon
-            )}
+            {currentIcon}
         </header>
     );
 }
